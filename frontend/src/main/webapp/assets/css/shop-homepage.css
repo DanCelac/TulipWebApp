@@ -3,10 +3,12 @@
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
  */
-
-html{
-	height: 100%;
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
+
 body {
 	padding-top: 54px;
 	height: 100%;
@@ -19,11 +21,7 @@ body {
 	}
 }
 
-footer {
-    padding-top: 100px;
-	margin 50px;
-	padding-bottom: 62%;
-}
+
 /*
    custom styling
 */
@@ -31,15 +29,19 @@ footer {
 .wrapper {
 	min-height: 100%; 
 	position: relative;
+	 margin: 0 auto;
 }
-
+.navbar {
+	
+}
 .content {
-	padding-bottom: 32%; /*height of of the footer*/
+	padding-bottom: 10%; /*height of of the footer,  cit de mult se duce in jos de la content*/
 }
 
 .footer {
-	padding-top: 300px;
-	position: relative;
-	bottom: 50 px;
-	height: 40px;
+	position: absolute;
+	bottom: 0;
+	 width: 100%;
+    height: 20px;
+
 }

@@ -3,4 +3,4 @@
         <p class="m-0 text-center text-white">© 2017-2018 Celac Dan ALL RIGHTS RESERVED</p>
       </div>
       <!-- /.container -->
-      </footer>
+  </footer>

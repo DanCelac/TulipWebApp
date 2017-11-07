@@ -28,8 +28,6 @@
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
-
-
 <!-- Custom styles for this template -->
 <link href="${css}/shop-homepage.css" rel="stylesheet">
 
@@ -38,34 +36,35 @@
 <body>
 
 	<div class="wrapper">
-		<!-- Navigation -->
-
-		<%@include file="./shared/navbar.jsp"%>
+		
+		<!-- Header Menu -->
+		<div class="navbar">
+			<%@include file="./shared/navbar.jsp"%>
+			<!-- End div navbar -->
+		</div>
 
 		<!-- Page Content -->
-
 		<div class="content">
 			<!-- Loadind the home content -->
 			<c:if test="${userClickHome == true }">
 				<%@ include file="home.jsp"%>
 			</c:if>
-
 			<!-- Load only when user click about -->
 			<c:if test="${userClickAbout == true }">
 				<%@ include file="about.jsp"%>
 			</c:if>
-
 			<!-- Load only when user click contact -->
 			<c:if test="${userClickContact == true }">
 				<%@ include file="contact.jsp"%>
 			</c:if>
-
 			<!-- end div content -->
 		</div>
 
-
-		<!-- Footer -->
-		<%@ include file="./shared/footer.jsp"%>
+		
+			<!-- Footer -->
+			<%@ include file="./shared/footer.jsp"%>
+			<!-- End div footer -->
+		
 
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/jquery.min.js"></script>
