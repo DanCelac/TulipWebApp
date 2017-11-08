@@ -15,6 +15,15 @@
 	</properties>
 
 	<dependencies>
+
+
+		<!-- LINK backend project -->
+		<dependency>
+			<groupId>md.rwplus</groupId>
+			<artifactId>backend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 		<!--JAVA EE API -->
 		<dependency>
 			<groupId>javax</groupId>
@@ -23,7 +32,13 @@
 			<!-- punem asa ${javaee.version} cind pusem sa se faca update automat -->
 			<scope>provided</scope>
 		</dependency>
+		<!-- Javax servlet -->
 
+		<dependency>
+			<groupId>com.github.the-alchemist</groupId>
+			<artifactId>cucumber-nashorn</artifactId>
+			<version>1.0.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -38,14 +53,54 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>4.3.12.RELEASE</version>
 		</dependency>
-		
+
 		<!--JSTL -->
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.2</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>javax.servlet.jsp.jstl-api</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>javax.servlet.jsp.jstl</artifactId>
+			<version>1.2.1</version>
+			<exclusions>
+				<!-- jstl-api was adding selvlet-api 2.5 and jsp-api -->
+				<exclusion>
+					<artifactId>jstl-api</artifactId>
+					<groupId>javax.servlet.jsp.jstl</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
+
 	</dependencies>
+
+
 	<build>
 
 		<plugins>

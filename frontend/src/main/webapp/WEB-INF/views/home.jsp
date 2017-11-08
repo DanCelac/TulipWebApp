@@ -3,16 +3,12 @@
       <div class="row">
 
         <div class="col-lg-3">
-
-          <h1 class="my-4">Shop Name</h1>
-          <div class="list-group">
-            <a href="#" class="list-group-item">Category 1</a>
-            <a href="#" class="list-group-item">Category 2</a>
-            <a href="#" class="list-group-item">Category 3</a>
-          </div>
-
+         <!-- Sidebar --> 
+         <%@ include file = "./shared/sidebar.jsp" %>
+         
+              <!-- /.col-lg-3 -->
         </div>
-        <!-- /.col-lg-3 -->
+        
 
         <div class="col-lg-9">
 
