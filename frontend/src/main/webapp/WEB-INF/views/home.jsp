@@ -24,7 +24,7 @@
 				</ol>
 				<div class="carousel-inner" role="listbox">
 					<div class="carousel-item active">
-						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/assets/images/image1Slide.jpg" alt="First slide">
+						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/assets/images/imag1Slide.png" alt="First slide">
 
 					</div>
 					<div class="carousel-item">
