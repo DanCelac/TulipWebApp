@@ -155,3 +155,4 @@ public class CategoryDAOImpl implements CategoryDAO {
 	}
 
 }
+//resolved
