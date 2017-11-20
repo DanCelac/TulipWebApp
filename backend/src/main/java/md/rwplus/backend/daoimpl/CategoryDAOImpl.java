@@ -1,8 +1,10 @@
 package md.rwplus.backend.daoimpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,13 +13,13 @@ import md.rwplus.backend.model.Category;
 import md.rwplus.backend.service.CategoryDAO;
 
 @Repository("categoryDAO")  // chemam metodele din interfata folosind aceasta notatie
-//@Transactional // trebuie sa fie aici deoarece sunt si alte metode de prelucare cum ar fi delete update
-//@Service("categoryDAO") // hold business logic and call method in repository layer(CategoryDAO interfata)
+@Transactional // trebuie sa fie aici deoarece sunt si alte metode de prelucare cum ar fi delete update
+@Service("categoryDAO") // hold business logic and call method in repository layer(CategoryDAO interfata)
 //@Component
 public class CategoryDAOImpl implements CategoryDAO {
  
-	
-	private static List<Category> categories = new ArrayList<>();
+	// add static resources in meniu sidebar  //work
+/*	private static List<Category> categories = new ArrayList<>();
 	
 	static{
 		Category category = new Category();
@@ -41,8 +43,6 @@ public class CategoryDAOImpl implements CategoryDAO {
 		category.setImageURL("cat3.png");
 		categories.add(category);
 	}
-	
-	
 	@Override
 	public Category get(int id) {
 		//enchange for
@@ -52,7 +52,6 @@ public class CategoryDAOImpl implements CategoryDAO {
 		
 		return null;
 	}
-
 	@Override
 	public List<Category> list() {
 		
@@ -61,7 +60,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	@Override
 	public boolean add(Category category) {
-		// TODO Auto-generated method stub
+// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -79,30 +78,12 @@ public class CategoryDAOImpl implements CategoryDAO {
    
 	
 }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	*/
 	
 	
 	// @Qualifier("sessionFactory") // The @Qualifier annotation along with @Autowired can be used to remove the confusion by specifiying which exact bean will be wired.
-/*	@Autowired
-	private SessionFactory sessionFactory;
+	@Autowired
+	private SessionFactory  sessionFactory;
 
 	@Override
 	public List<Category> list() {
@@ -174,4 +155,3 @@ public class CategoryDAOImpl implements CategoryDAO {
 	}
 
 }
-*/

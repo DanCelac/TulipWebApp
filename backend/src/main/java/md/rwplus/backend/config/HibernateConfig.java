@@ -15,7 +15,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration  //arata ca clasa contine mai multe binuri notate cu @Bean
-@ComponentScan(basePackages = {"md.rwplus.backend.dao"})
+@ComponentScan(basePackages = {"md.rwplus.backend"})
 @EnableTransactionManagement 
 public class HibernateConfig {
 	//Database Connection
@@ -25,8 +25,8 @@ public class HibernateConfig {
 	private static final String DATABASE_USERNAME = "Dancik__";
 	private static final String DATABASE_PASSWORD = "079176572d";
 	        
-	//dataSource bean will be availible
-	@Bean("dataSource")
+	//dataSource will provide the necessary connection information from the database
+	@Bean
 	public DataSource getDataSource(){
 		
 		BasicDataSource dataSource = new BasicDataSource();
@@ -40,13 +40,14 @@ public class HibernateConfig {
 		return dataSource;
 	}
 	
-	//SesionFactory bean will be availible
+	//SesionFactory  will use data source, provide o session for particularly user 
+	//if session is create we will create a query, and execute within the transaction
 	@Bean
 	public SessionFactory getSessionFactory(DataSource dataSource){
 		 
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
 		builder.addProperties(getHibernateProperties());
-		builder.scanPackages("md.rwplus.backend.dao");
+		builder.scanPackages("md.rwplus.backend");
 		
 		return builder.buildSessionFactory();
 		
@@ -65,7 +66,7 @@ public class HibernateConfig {
 		return properties;
 	}
 	
-	//transactionManager bean
+	//to manage the transactions to execute that particularly query
 	@Bean
 	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory){
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);

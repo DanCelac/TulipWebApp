@@ -61,9 +61,7 @@ public class Category {
 	}
 	
 	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+	
 	@Override
 	public String toString() {
 		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", imageURL=" + imageURL

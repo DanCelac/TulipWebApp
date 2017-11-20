@@ -25,20 +25,27 @@ public class CategoryTestCase {
 		categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
 	}
 
-	/*
-	 * @Test public void testAddCategory(){
-	 * 
-	 * category = new Category();
-	 * 
-	 * category.setName("Salate");
-	 * category.setDescription("This is some description for Salate");
-	 * category.setImageURL("CAT_1.png");
-	 * 
-	 * assertEquals("Successfully added a category insed the table", true,
-	 * categoryDAO.add(category));
-	 * 
-	 * }
-	 */
+	
+	  @Test public void testAddCategory(){
+	  
+	 category = new Category();
+	  
+	  category.setName("Meat");
+	  category.setDescription("This is some description for Meat");
+	  category.setImageURL("CAT_3.png");
+	 
+	  assertEquals("Successfully added a category insed the table", true,categoryDAO.add(category));
+	
+	  
+	  category = new Category();
+
+		category.setName("Pizza");
+		category.setDescription("This is some description for Pizza");
+		category.setImageURL("CAT_4.png");
+
+		assertEquals("Successfully added a category insed the table", true, categoryDAO.add(category));
+	  }
+	 
 
 	/*
 	 * @Test //get category if fetch with Pizza public void testGetCategory(){
@@ -89,7 +96,7 @@ public class CategoryTestCase {
 	 */
 
 	// test all the method in a single method
-	@Test
+/*	@Test
 	public void testCRUDCategory() {
 		// add operation
 		category = new Category();
@@ -123,5 +130,5 @@ public class CategoryTestCase {
 		 
 
 	}
-
+*/
 }

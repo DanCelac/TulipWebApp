@@ -24,7 +24,7 @@ public class PageController {
 		mv.addObject("title","Home");
 		
 		//passing the list of category
-        mv.addObject("categories", categoryDAO.list()); //da eroare null pointer exception
+        mv.addObject("categories", categoryDAO.list()); //da eroare null pointer exception daca pun Qualifier
 		
 		mv.addObject("userClickHome",true);
 		return mv;
