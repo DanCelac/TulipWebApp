@@ -9,7 +9,7 @@ CREATE TABLE category (
       CONSTRAINT pk_category_id
       PRIMARY KEY (id )
 );
-
+--done
 
 CREATE TABLE user_detail (
 	id IDENTITY,
@@ -22,16 +22,14 @@ CREATE TABLE user_detail (
 	contact_number VARCHAR(15),	
 	CONSTRAINT pk_user_id PRIMARY KEY(id)
 );
-
+--done
 
 CREATE TABLE product (
 	id IDENTITY,
 	code VARCHAR(20),
 	name VARCHAR(50),
-	brand VARCHAR(50),
 	description VARCHAR(255),
 	unit_price DECIMAL(10,2),
-	quantity INT,
 	is_active BOOLEAN,
 	category_id INT,
 	supplier_id INT,
@@ -41,23 +39,19 @@ CREATE TABLE product (
  	CONSTRAINT fk_product_category_id FOREIGN KEY (category_id) REFERENCES category (id),
 	CONSTRAINT fk_product_supplier_id FOREIGN KEY (supplier_id) REFERENCES user_detail(id),	
 );	
-
+--brand scos, quantity scos
 -- the address table to store the user billing and shipping addresses
 CREATE TABLE address (
 	id IDENTITY,
 	user_id int,
 	address_line_one VARCHAR(100),
-	address_line_two VARCHAR(100),
 	city VARCHAR(20),
-	state VARCHAR(20),
-	country VARCHAR(20),
-	postal_code VARCHAR(10),
 	is_billing BOOLEAN,
 	is_shipping BOOLEAN,
 	CONSTRAINT fk_address_user_id FOREIGN KEY (user_id ) REFERENCES user_detail (id),
 	CONSTRAINT pk_address_id PRIMARY KEY (id)
 );
-
+--state scos, postal_code scos, country scos, address_line_two
 -- the cart table to store the user cart top-level details
 CREATE TABLE cart (
 	id IDENTITY,
@@ -67,6 +61,7 @@ CREATE TABLE cart (
 	CONSTRAINT fk_cart_user_id FOREIGN KEY (user_id ) REFERENCES user_detail (id),
 	CONSTRAINT pk_cart_id PRIMARY KEY (id)
 );
+
 -- the cart line table to store the cart details
 
 CREATE TABLE cart_line (
@@ -112,5 +107,42 @@ CREATE TABLE order_item (
 	CONSTRAINT pk_order_item_id PRIMARY KEY (id)
 );
 
+
+
+-- adding three categories
+INSERT INTO category (name, description,image_url,is_active) VALUES ('Pizza', 'This is description for Pizza category!', 'CAT_1.png', true);
+INSERT INTO category (name, description,image_url,is_active) VALUES ('Salad', 'This is description for Salad category!', 'CAT_2.png', true);
+INSERT INTO category (name, description,image_url,is_active) VALUES ('Meat', 'This is description for Meat category!', 'CAT_3.png', true);
+-- adding three users 
+
+INSERT INTO user_detail 
+(first_name, last_name, role, enabled, password, email, contact_number) 
+VALUES ('Celac', 'Dan', 'ADMIN', true, '079176572d', 'dancelac@mail.ru', '068272361');
+INSERT INTO user_detail 
+(first_name, last_name, role, enabled, password, email, contact_number) 
+VALUES ('Procop', 'Denis', 'SUPPLIER', true, 'procopDenis', 'procopdenis@mail.ru', '068024481');
+INSERT INTO user_detail 
+(first_name, last_name, role, enabled, password, email, contact_number) 
+VALUES ('Procop', 'Vlad', 'SUPPLIER', true, 'procopVlad', 'procopVlad@mail.ru', '068442602');
+INSERT INTO user_detail 
+(first_name, last_name, role, enabled, password, email, contact_number) 
+VALUES ('Celac', 'Ala', 'USER', true, 'celacAla', 'celacala@mail.ru', '068024482');
+
+-- adding five products
+INSERT INTO product (code, name, description, unit_price, is_active, category_id, supplier_id, purchases, views)
+VALUES ('PRDABC123DEFX', 'Pizza Atomic', 'This is one of the most bought product !', 58, true, 3, 2, 0, 0 );
+INSERT INTO product (code, name, description, unit_price, is_active, category_id, supplier_id, purchases, views)
+VALUES ('PRDDEF123DEFX', 'Meat', 'Grilled pork steak with vegetables !', 50, true, 3, 3, 0, 0 );
+INSERT INTO product (code, name, description, unit_price, is_active, category_id, supplier_id, purchases, views)
+VALUES ('PRDPQR123WGTX', 'Salate', 'That is one of the most preferred salat!', 35, true, 3, 2, 0, 0 );
+INSERT INTO product (code, name, description, unit_price, is_active, category_id, supplier_id, purchases, views)
+VALUES ('PRDMNO123PQRX', ' Fish', 'Salmon steak', 50, true, 1, 2, 0, 0 );
+INSERT INTO product (code, name, description, unit_price, is_active, category_id, supplier_id, purchases, views)
+VALUES ('PRDABCXYZDEFX', 'Garniture', 'Risotto with vegetables!', 20, true, 1, 3, 0, 0 );
+-- adding a supplier correspondece address
+INSERT INTO address( user_id, address_line_one, city, is_billing, is_shipping) 
+VALUES (4, 'str.Vasile Lupu 42/1', 'Orhei', true, false );
+-- adding a cart for testing 
+INSERT INTO cart (user_id, grand_total, cart_lines) VALUES (4, 0, 0);
 
 
