@@ -31,6 +31,10 @@
 <!-- Custom styles for this template -->
 <link href="${css}/shop-homepage.css" rel="stylesheet">
 
+<link href="${css}/dataTables.css" rel="stylesheet">
+
+
+
 </head>
 
 <body>
@@ -71,8 +75,14 @@
 
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/jquery.min.js"></script>
+		
 		<script src="${js}/bootstrap.bundle.min.js"></script>
-
+		
+		<!-- DATA TABLE PLUGIN  , ordinea lor conteaza-->
+		<script src="${js}/jqueryCDN.min.js"></script>
+		<script src="${js}/dataTables.js"></script>
+		
+		
 		<!-- Self code javaScript -->
 		<script src="${js}/myapp.js"></script>
 

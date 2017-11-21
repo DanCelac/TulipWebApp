@@ -8,10 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Transient;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Component
 @Entity
@@ -37,7 +37,7 @@ private static final long serialVersionUID = 1L;
 	//@JsonIgnore
 	private int categoryId;
 	@Column(name = "supplier_id")
-//	@JsonIgnore
+	@JsonIgnore  //pentru a nu transforma in Json format
 	private int supplierId;
 	private int purchases;
 	private int views;
