@@ -19,18 +19,8 @@ $(function(){
 	
 
  //code for jquery dataTable
- //create a dataset
+
  
- var products =[
-                ['1', 'ABC'],
-				['2', 'DEF'],
-				['3', 'KLN'],
-				['4', 'PLK'],
-				['5', 'JUI'],
-				['6', 'LOI'],
-				['7', 'LOL'],
-				['8', 'MNP']
-               ];
 
 
 var $table = $('#productListTable');
@@ -38,17 +28,72 @@ var $table = $('#productListTable');
 //execute the below code only where we have this table
 if ($table.length) {
 		 //console.log('Inside the table!');
-		 
-		 $table.DataTable({
-			 
-			lengthMenu : [ [ 3, 5, 10, -1 ],
-							[ '3 Records', '5 Records', '10 Records', 'ALL' ] ],
-					pageLength : 5,
-			 data: products
-			 });
+		
+		var jsonUrl = '';
+		if (window.categoryId == '') {
+			jsonUrl = window.contextRoot + '/json/data/all/products';
+		} else {
+			jsonUrl = window.contextRoot +'/json/data/category/'+ window.categoryId +'/products';
+		}
 
-}
-});
+		$table.DataTable({
+			lengthMenu: [ [ 3, 5, 10, -1 ],
+							[ '3 Records', '5 Records', '10 Records', 'ALL' ] ],
+					pageLength: 5,
+					ajax: {
+						url: jsonUrl,
+						dataSrc: ''
+					      },
+					columns: [ 
+					         {
+								data: 'code',
+								//bSortable: false
+								mRender: function(data, type, row) 
+								{
+
+									//return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg"/>';
+									return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg"  style="width:100px; height:100px;"/>';
+														
+								}
+							 },
+							 {
+								data: 'name'
+							 },
+							 {
+								data: 'description'
+							 },
+							 {
+								data: 'unitPrice',
+                                    mRender: function(data, type, row) {
+									return data + ' Lei' //html code for ruby
+								}								
+							 },
+							 {
+								data: 'id',
+								bSortable: false,
+								mRender: function(data, type, row) 
+								{
+
+									var str = '';
+									str += '<a href="'+window.contextRoot+'/show/'+data+'/product" class="btn btn-primary"> <span class="glyphicon glyphicon-eye-open"></span> </a> &#160;';
+									str += '<a href="'+window.contextRoot+'/cart/add/'+data+'/product" class="btn btn-success"> <span class="glyphicon glyphicon-shopping-cart"></span> </a>';
+                                     return str;
+
+								}
+
+							}
+							
+					
+					
+					          ]
+			
+			
+			
+			
+		 }); //end DataTable
+
+      }//end if
+}); //end function
 
 
 

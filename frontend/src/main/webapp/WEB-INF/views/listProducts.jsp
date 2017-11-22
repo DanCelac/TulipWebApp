@@ -60,36 +60,35 @@
 						<thead>
 						
 							<tr>
-								<th>ID</th>
+							    <th></th>
 								<th>Name</th>
-								<!-- <th>Brand</th>
+								<th>Description</th>
 								<th>Price</th>
-								<th>Qty. Available</th>
-								<th></th> -->
+								<th></th>
+
 							
 							</tr>
 						
 						</thead>
 					
 
-						<!-- <tfoot>
+						 <tfoot>
 						
 							<tr>
-								<th>ID</th>
+							    <th></th>
 								<th>Name</th>
-								<th>Brand</th>
+								<th>Description</th>
 								<th>Price</th>
-								<th>Qty. Available</th>
 								<th></th>
 							
 							</tr>
 						
-						</tfoot> -->
+						</tfoot> 
 					</table>
 				
 				</div>
 			
-			</div
+			</div>
 
 		</div>
 

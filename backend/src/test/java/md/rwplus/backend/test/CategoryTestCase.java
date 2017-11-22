@@ -30,21 +30,30 @@ public class CategoryTestCase {
 	  
 	 category = new Category();
 	  
-	  category.setName("Meat");
-	  category.setDescription("This is some description for Meat");
-	  category.setImageURL("CAT_3.png");
+	  category.setName("Fish");
+	  category.setDescription("This is some description for Fish");
+	  category.setImageURL("CAT_4.png");
 	 
 	  assertEquals("Successfully added a category insed the table", true,categoryDAO.add(category));
 	
 	  
 	  category = new Category();
 
-		category.setName("Pizza");
-		category.setDescription("This is some description for Pizza");
-		category.setImageURL("CAT_4.png");
+		category.setName("Pastes");
+		category.setDescription("This is some description for Pastes");
+		category.setImageURL("CAT_5.png");
+
+		assertEquals("Successfully added a category insed the table", true, categoryDAO.add(category));
+	 
+		category = new Category();
+
+		category.setName("Garniture");
+		category.setDescription("This is some description for Garniture");
+		category.setImageURL("CAT_6.png");
 
 		assertEquals("Successfully added a category insed the table", true, categoryDAO.add(category));
 	  }
+	  
 	 
 
 	/*

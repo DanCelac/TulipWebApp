@@ -50,7 +50,7 @@
 				<div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"
-							src="${pageContext.request.contextPath}/assets/images/salate.jpg" alt=""></a>
+							src="${pageContext.request.contextPath}/assets/images/PRDPQR123WGTX.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href="#">Salad Gurman</a>
@@ -68,7 +68,7 @@
 				<div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"
-							src="${pageContext.request.contextPath}/assets/images/pizza.jpg" alt=""></a>
+							src="${pageContext.request.contextPath}/assets/images/PRDABC123DEFX.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href="#">Pizza Atomic</a>
@@ -86,7 +86,7 @@
 				<div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"
-							src="${pageContext.request.contextPath}/assets/images/meal.jpg" alt=""></a>
+							src="${pageContext.request.contextPath}/assets/images/PRDDEF123DEFX.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href="#">Meat</a>
@@ -104,7 +104,7 @@
 				<div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"
-							src="${pageContext.request.contextPath}/assets/images/garnituri.jpg" alt=""></a>
+							src="${pageContext.request.contextPath}/assets/images/PRDABCXYZDEFX.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href="#">Garniture</a>
@@ -122,7 +122,7 @@
 				<div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"
-							src="${pageContext.request.contextPath}/assets/images/paste.jpg" alt=""></a>
+							src="${pageContext.request.contextPath}/assets/images/PRDABCXYZDHFD.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href="#">Pastes</a>
@@ -140,7 +140,7 @@
 				<div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"
-							src="${pageContext.request.contextPath}/assets/images/fish.jpg" alt=""></a>
+							src="${pageContext.request.contextPath}/assets/images/PRDMNO123PQRX.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href="#">Fish</a>
