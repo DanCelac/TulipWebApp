@@ -33,10 +33,10 @@
 <link href="${css}/shop-homepage.css" rel="stylesheet">
 
 <!-- Old table css -->
-<%--  <link href="${css}/dataTablesBootstrap.css" rel="stylesheet">  --%>
+<%--  <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">  --%>
 
 <!-- New Table CSS -->
- <link href="${css}/dataTables.bootstrap4.css" rel="stylesheet"> 
+ <link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">  
  
  <!-- Glyphicons CSS -->
  <link href="${css}/glyphicons.css" rel="stylesheet"> 
@@ -87,16 +87,12 @@
 		
 
 		<!-- Bootstrap core JavaScript -->
-		<script src="${js}/jquery.min.js"></script>
+		<script src="${js}/jquery.min.3.2.1.js"></script>
 		<script src="${js}/bootstrap.bundle.min.js"></script>
-		
-	   <!-- Old Plugin js -->
-	<%-- 	<script src="${js}/dataTablesBootstrap.js"></script> 
-		<script src="${js}/dataTables.js"></script>  --%>
-		
+
 		<!-- New plugin js -->
-		 <script src="${js}/jquery.dataTables.js"></script> 
-		 <script src="${js}/dataTables.bootstrap4.js"></script>
+		 <script src="${js}/jquery.dataTables.16.js"></script> 
+		 <script src="${js}/dataTables.bootstrap4.js"></script> 
 	
 		
 		<!-- Self code javaScript -->

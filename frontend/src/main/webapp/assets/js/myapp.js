@@ -31,31 +31,39 @@ if ($table.length) {
 		
 		var jsonUrl = '';
 		if (window.categoryId == '') {
-			jsonUrl = window.contextRoot + '/json/data/all/products';
+			jsonUrl = window.contextRoot +'/json/data/all/products';
 		} else {
-			jsonUrl = window.contextRoot +'/json/data/category/'+ window.categoryId +'/products';
+			jsonUrl = window.contextRoot +'/json/data/category/'+window.categoryId+'/products';
 		}
-
+ 
 		$table.DataTable({
 			lengthMenu: [ [ 3, 5, 10, -1 ],
 							[ '3 Records', '5 Records', '10 Records', 'ALL' ] ],
 					pageLength: 5,
 					ajax: {
 						url: jsonUrl,
-						dataSrc: ''
-					      },
+						dataSrc: ''		//pentru a manipula datele din Json return		
+						  },
 					columns: [ 
-					         {
+					        {
+								
 								data: 'code',
-								//bSortable: false
+								bSortable: false,
+								
 								mRender: function(data, type, row) 
 								{
-
-									//return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg"/>';
-									return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg"  style="width:100px; height:100px;"/>';
-														
+									if(data == '')
+                                    
+								return "Doesn't exist data";
+									 else 
+									return '<img src="'+window.contextRoot+'/assets/image/'+data+'.jpg" style="width:100px; height:100px;"/>';
+							    
+								
+									
+								   
+													
 								}
-							 },
+							},
 							 {
 								data: 'name'
 							 },
@@ -65,7 +73,7 @@ if ($table.length) {
 							 {
 								data: 'unitPrice',
                                     mRender: function(data, type, row) {
-									return data + ' Lei' //html code for ruby
+									return data + ' Lei' 
 								}								
 							 },
 							 {
@@ -85,7 +93,7 @@ if ($table.length) {
 							
 					
 					
-					          ]
+					          ]//end columns
 			
 			
 			

@@ -55,13 +55,13 @@
 				
 					
 					<table id="productListTable" class="table table-striped table-borderd">
-					
+					 
 					
 						<thead>
-						
+					
 							<tr>
 							    <th></th>
-								<th>Name</th>
+   								<th>Name</th>
 								<th>Description</th>
 								<th>Price</th>
 								<th></th>

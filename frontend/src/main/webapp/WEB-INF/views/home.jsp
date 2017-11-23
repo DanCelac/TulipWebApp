@@ -24,14 +24,14 @@
 				</ol>
 				<div class="carousel-inner" role="listbox">
 					<div class="carousel-item active">
-						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/assets/images/imag1Slide.png" alt="First slide">
+						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/assets/image/imag1Slide.png" alt="First slide">
 
 					</div>
 					<div class="carousel-item">
-						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/assets/images/image2slide.jpg" alt="Second slide">
+						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/assets/image/image2slide.jpg" alt="Second slide">
 					</div>
 					<div class="carousel-item">
-						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/assets/images/image3slide.jpg" alt="Third slide">
+						<img class="d-block img-fluid" src="${pageContext.request.contextPath}/assets/image/image3slide.jpg" alt="Third slide">
 					</div>
 				</div>
 				<a class="carousel-control-prev" href="#carouselExampleIndicators"
@@ -50,7 +50,7 @@
 				<div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"
-							src="${pageContext.request.contextPath}/assets/images/PRDPQR123WGTX.jpg" alt=""></a>
+							src="${pageContext.request.contextPath}/assets/image/PRDPQR123WGTX.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href="#">Salad Gurman</a>
@@ -68,7 +68,7 @@
 				<div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"
-							src="${pageContext.request.contextPath}/assets/images/PRDABC123DEFX.jpg" alt=""></a>
+							src="${pageContext.request.contextPath}/assets/image/PRDABC123DEFX.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href="#">Pizza Atomic</a>
@@ -86,7 +86,7 @@
 				<div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"
-							src="${pageContext.request.contextPath}/assets/images/PRDDEF123DEFX.jpg" alt=""></a>
+							src="${pageContext.request.contextPath}/assets/image/PRDDEF123DEFX.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href="#">Meat</a>
@@ -104,7 +104,7 @@
 				<div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"
-							src="${pageContext.request.contextPath}/assets/images/PRDABCXYZDEFX.jpg" alt=""></a>
+							src="${pageContext.request.contextPath}/assets/image/PRDABCXYZDEFX.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href="#">Garniture</a>
@@ -122,7 +122,7 @@
 				<div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"
-							src="${pageContext.request.contextPath}/assets/images/PRDABCXYZDHFD.jpg" alt=""></a>
+							src="${pageContext.request.contextPath}/assets/image/PRDABCXYZDHFD.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href="#">Pastes</a>
@@ -140,7 +140,7 @@
 				<div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"
-							src="${pageContext.request.contextPath}/assets/images/PRDMNO123PQRX.jpg" alt=""></a>
+							src="${pageContext.request.contextPath}/assets/image/PRDMNO123PQRX.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
 								<a href="#">Fish</a>
