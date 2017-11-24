@@ -25,7 +25,7 @@
 
      ">
  
-	<context:component-scan base-package="md.rwplus.frontend.controller" /> 
+	<context:component-scan base-package="md.rwplus.frontend" /> 
     <context:component-scan base-package="md.rwplus.backend" /> 
 	<!-- tells spring to search project classpath for all classes under the package specified with -->
 	
