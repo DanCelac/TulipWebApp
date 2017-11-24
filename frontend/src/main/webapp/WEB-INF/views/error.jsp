@@ -56,8 +56,7 @@
 						<h1>${errorTitle}</h1>
 						<hr />
 
-						<blockquote style="word-wrap: break-word">
-
+						<blockquote style="word-wrap: break-word"> <!--  pentru a nu aparea eroarea mai lunga si sa apara scrollbar jos -->
 							${errorDescription}</blockquote>
 
 					</div>
