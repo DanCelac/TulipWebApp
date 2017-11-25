@@ -44,7 +44,7 @@ if ($table.length) {
 							[ '3 Records', '5 Records', '10 Records', 'ALL' ] ],
 					pageLength: 5,
 					ajax: {
-						url: jsonUrl,
+						url: jsonUrl,	
 						dataSrc: ''		//pentru a manipula datele din Json return		
 						  },
 					columns: [ 
@@ -60,24 +60,22 @@ if ($table.length) {
 								return "Doesn't exist data";
 									 else 
 									return '<img src="'+window.contextRoot+'/assets/image/'+data+'.jpg" style="width:100px; height:100px;"/>';
-							    
-								
-									
-								   
-													
+												
 								}
 							},
 							 {
 								data: 'name'
+								       
 							 },
 							 {
 								data: 'description'
 							 },
 							 {
 								data: 'unitPrice',
-                                    mRender: function(data, type, row) {
+                                    mRender: function(data, type, row) 
+									{
 									return data + ' Lei' 
-								}								
+								    }								
 							 },
 							 {
 								data: 'id',

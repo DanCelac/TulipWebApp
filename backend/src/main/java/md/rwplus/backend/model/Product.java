@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 import org.springframework.stereotype.Component;
 
@@ -24,21 +26,30 @@ private static final long serialVersionUID = 1L;
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String code;
-//	@NotBlank(message = "Please enter the product name!")
+	@NotBlank(message = "Please enter the product name!") //NotBlack - check if it's not null an greater than 0, the white spaces are ignored, that is the diference about NotEmpty
 	private String name;
-//	@NotBlank(message = "Please enter the description!")
+	
+	@NotBlank(message = "Please enter the description!")
 	private String description;
+	
+	
 	@Column(name = "unit_price")
-//	@Min(value = 1, message="Please select at least one value!")
+	@Min(value = 1, message="The price cannot be less than 1")
 	private double unitPrice;
+	
 	@Column(name = "is_active")	
+	@JsonIgnore
 	private boolean active;
+	
 	@Column(name = "category_id")
-	//@JsonIgnore
+	@JsonIgnore
 	private int categoryId;
+	
 	@Column(name = "supplier_id")
+	
 	@JsonIgnore  //pentru a nu transforma in Json format
 	private int supplierId;
+	
 	private int purchases;
 	private int views;
 	

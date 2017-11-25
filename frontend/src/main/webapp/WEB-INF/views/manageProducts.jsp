@@ -39,42 +39,36 @@
 						action="${contextRoot}/manage/products" method="POST">
 
 						<div class="form-group">
-							<label class="control-label col-md-4" for="name">Enter
-								Product Name: </label>
+							<label class="control-label col-md-4" for="name">Enter Product Name: </label>
 							<div class="col-md-8">
 								<!-- path=name cimpul declarat in clasa product care este name -->
-								<sf:input type="text" path="name" id="name"
-									placeholder="Product Name" class="form-control" />
+								<sf:input type="text" path="name" id="name" placeholder="Product Name" class="form-control" />
+								<sf:errors path="name" cssClass="help-block" element="em"/>
 								<!--   <em class="help-block" style="color: #ff0000;">Please enter Product Name !</em> -->
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-md-4" for="description">Product
-								description: </label>
+							<label class="control-label col-md-4" for="description">Product description: </label>
 							<div class="col-md-8">
-								<sf:textarea type="text" path="description" id="description"
-									rows="4" placeholder="Enter your description here!"
-									class="form-control" />
+								<sf:textarea type="text" path="description" id="description" rows="4" placeholder="Enter your description here!" class="form-control" />
+							    <sf:errors path="description" cssClass="help-block" element="em"/>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-md-4" for="unitPrice">Enter
-								Unit Price : </label>
+							<label class="control-label col-md-4" for="unitPrice">Enter Unit Price : </label>
 							<div class="col-md-8">
-								<sf:input type="number" path="unitPrice" id="unitPrice"
-									placeholder="Unit Price in Lei" class="form-control" />
+								<sf:input type="number" path="unitPrice" id="unitPrice" placeholder="Unit Price in Lei" class="form-control" />
+							      <sf:errors path="unitPrice" cssClass="help-block" element="em"/>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-md-4" for="categoryId">Select
-								Category: </label>
+							<label class="control-label col-md-4" for="categoryId">Select Category: </label>
 							<div class="col-md-8">
-								<sf:select class="form-control" id="categoryId"
-									path="categoryId" items="${categories}" itemLabel="name"
-									itemValue="id" />
+								<sf:select class="form-control" id="categoryId" path="categoryId" items="${categories}" itemLabel="name" itemValue="id" />
+						        <sf:errors path="categoryId" cssClass="help-block" element="em"/>
 							</div>
 						</div>
 
