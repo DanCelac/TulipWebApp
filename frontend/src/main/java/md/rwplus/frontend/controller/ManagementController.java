@@ -1,52 +1,82 @@
 package md.rwplus.frontend.controller;
 
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import md.rwplus.backend.model.Category;
+import md.rwplus.backend.model.Product;
+import md.rwplus.backend.service.CategoryDAO;
+import md.rwplus.backend.service.ProductDAO;
 
 @Controller
 @RequestMapping("/manage")
 public class ManagementController {
 
-	//private static final Logger logger = LoggerFactory.getLogger(ManagementController.class);
+	
 
-	/*@Autowired
+	@Autowired
 	private ProductDAO productDAO;
+		
 	
 	@Autowired
-	private CategoryDAO categoryDAO;	*/	
+	private CategoryDAO categoryDAO;	
+	
+	private static final Logger logger = LoggerFactory.getLogger(ManagementController.class); //just for developer purpose
 
 	@RequestMapping(value="/products", method = RequestMethod.GET)
-	public ModelAndView showManageProducts() {	
+	public ModelAndView showManageProducts(@RequestParam(name="operation",required=false)String operation) {	
 		/*@RequestParam(name="success",required=false)String success*/
 		ModelAndView mv = new ModelAndView("page");			
 		mv.addObject("userClickManageProducts",true);
 		mv.addObject("title","Manage Products");
 		
-	//	Product nProduct = new Product();
+		Product nProduct = new Product();
 		
 		// assuming that the user is ADMIN
 		// later we will fixed it based on user is SUPPLIER or ADMIN
-//		nProduct.setSupplierId(1);
-//		nProduct.setActive(true);
+		nProduct.setSupplierId(1);
+		nProduct.setActive(true);
 
-//		mv.addObject("product", nProduct);
+ 		mv.addObject("product", nProduct);
 
 		
-		/*if(success != null) {
-			if(success.equals("product")){
+		if(operation != null) {
+			if(operation.equals("product")){
 				mv.addObject("message", "Product submitted successfully!");
 			}	
-			else if (success.equals("category")) {
+			/*else if (operation.equals("category")) {
 				mv.addObject("message", "Category submitted successfully!");
-			}
-		}*/
+			}*/
+		}
 			
 		return mv;
 		
 	}
 
+	
+	//handling product submision
+	@RequestMapping(value="/products", method = RequestMethod.POST)
+	public String handleProductSubmission(@ModelAttribute("product") Product mProduct){
+		
+		logger.info(mProduct.toString());
+		
+		//create a new product record
+		productDAO.add(mProduct);
+		
+		
+		return "redirect:/manage/products?operation=product";
+	}
+	
+	
 	
 /*	@RequestMapping("/{id}/product")
 	public ModelAndView manageProductEdit(@PathVariable int id) {		
@@ -61,10 +91,10 @@ public class ManagementController {
 			
 		return mv;
 		
-	}
+	}*/
 	
 	
-	@RequestMapping(value = "/product", method=RequestMethod.POST)
+	/*@RequestMapping(value = "/products", method=RequestMethod.POST)
 	public String managePostProduct(@Valid @ModelAttribute("product") Product mProduct, 
 			BindingResult results, Model model, HttpServletRequest request) {
 		
@@ -100,8 +130,8 @@ public class ManagementController {
 		
 		return "redirect:/manage/product?success=product";
 	}
-
-	
+ */
+	/*
 	@RequestMapping(value = "/product/{id}/activation", method=RequestMethod.GET)
 	@ResponseBody
 	public String managePostProductActivation(@PathVariable int id) {		
@@ -118,15 +148,15 @@ public class ManagementController {
 		categoryDAO.add(mCategory);		
 		return "redirect:" + request.getHeader("Referer") + "?success=category";
 	}
-			
+			*/
 	
-	
+	//returning categories for all the request mapping
 	@ModelAttribute("categories") 
-	public List<Category> modelCategories() {
+	public List<Category> getCategories() {
 		return categoryDAO.list();
 	}
 	
-	@ModelAttribute("category")
+	/*@ModelAttribute("category")
 	public Category modelCategory() {
 		return new Category();
 	}
