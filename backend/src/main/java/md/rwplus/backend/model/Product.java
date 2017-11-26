@@ -40,7 +40,6 @@ private static final long serialVersionUID = 1L;
 	private double unitPrice;
 	
 	@Column(name = "is_active")	
-	@JsonIgnore
 	private boolean active;
 	
 	@Column(name = "category_id")

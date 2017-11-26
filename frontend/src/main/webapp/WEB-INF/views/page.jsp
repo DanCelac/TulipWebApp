@@ -41,6 +41,9 @@
  <!-- Glyphicons CSS -->
  <link href="${css}/glyphicons.css" rel="stylesheet"> 
  
+  <!-- Toogle Switch -->
+ <link href="${css}/bootstrap-toggle.min.css" rel="stylesheet"> 
+ 
 
 
 
@@ -102,6 +105,11 @@
 		 <script src="${js}/jquery.dataTables.16.js"></script> 
 		 <script src="${js}/dataTables.bootstrap4.js"></script> 
 	
+	    <!-- Toogle switch js -->
+		 <script src="${js}/bootstrap-toggle.min.js"></script> 
+		 
+		 <!-- BootBox for display js -->
+		 <script src="${js}/bootbox.min.js"></script> 
 		
 		<!-- Self code javaScript -->
 		<script src="${js}/myapp.js"></script>
