@@ -222,12 +222,17 @@ if ($adminProductsTable.length) {
 									if (confirmed) {
 										
 							           console.log(value);
-									   bootbox.alert({
+									   
+									   var activationUrl = window.contextRoot + '/manage/product/'+value+'/activation';
+									   
+									   $.post(activationUrl, function(data){
+										   bootbox.alert({
 										   size: 'medium',
 										   title: 'Information',
-										   message: 'You are going to performe operation on product ' + value
+										   message: data 
 									   });
-									   
+									   });
+
 							        }
 							        else {							        	
 							        	checkbox.prop('checked', !checked);
