@@ -55,6 +55,11 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 
 		<!-- DataBase Connection Pooling -->
 		<dependency>
@@ -82,7 +87,7 @@
 			<version>1.7.25</version>
 		</dependency>
 
-		<!-- Validation for validate manage form   ex.@Value (min=1) etc -->
+		<!-- Validation for validate manage form ex.@Value (min=1) etc -->
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>

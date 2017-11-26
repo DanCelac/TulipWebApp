@@ -8,10 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -53,7 +55,7 @@ private static final long serialVersionUID = 1L;
 	private int purchases;
 	private int views;
 	
-	/*
+	
 	@Transient
 	private MultipartFile file;
 			
@@ -65,7 +67,7 @@ private static final long serialVersionUID = 1L;
 		this.file = file;
 	}
 
-*/
+ 
 	// default constructor
 	public Product() {
 		

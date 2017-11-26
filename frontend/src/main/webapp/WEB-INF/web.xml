@@ -13,6 +13,13 @@
 			<param-value>true</param-value>
 		</init-param>
 		 <load-on-startup>1</load-on-startup>
+		 
+		<!--  For upload the image at 4 mb size -->
+		 <multipart-config>
+			<max-file-size>2097152</max-file-size> <!-- for 2 mb  1024 * 1024 * 2 = 2097152 -->
+			<max-request-size>4194304</max-request-size> <!-- for 4 mb 1024 * 1024 * 4 = 4194304  -->
+			<file-size-threshold>1048576</file-size-threshold> <!-- for 1 mb 1024 * 1024 * 1 =1048576  -->
+		</multipart-config>
 	</servlet>
  
 	<servlet-mapping>

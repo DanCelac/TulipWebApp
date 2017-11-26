@@ -2,6 +2,7 @@ package md.rwplus.frontend.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -20,6 +21,7 @@ import md.rwplus.backend.model.Category;
 import md.rwplus.backend.model.Product;
 import md.rwplus.backend.service.CategoryDAO;
 import md.rwplus.backend.service.ProductDAO;
+import md.rwplus.frontend.util.FileUploadUtility;
 
 @Controller
 @RequestMapping("/manage")
@@ -69,9 +71,11 @@ public class ManagementController {
 	
 	//handling product submision
 	@RequestMapping(value="/products", method = RequestMethod.POST)
-	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model){ 
-		                                                                                     //first bindingResult then Model, this is important
-																							//BindingResult is used for validation.., and to pass any date use Model
+	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, 
+			BindingResult results, Model model, HttpServletRequest request){ 
+			//first bindingResult then Model, this is important
+			//BindingResult is used for validation.., and to pass any date use Model
+			//HttpServletRequest request pentru a afla calea cea reala
 		//check if there are any error
 		if(results.hasErrors()){
 			
@@ -88,6 +92,18 @@ public class ManagementController {
 		
 		//create a new product record
 		productDAO.add(mProduct);
+		
+	/*	if(mProduct.getId() == 0 ) {
+			productDAO.add(mProduct);
+		}
+		else {
+			productDAO.update(mProduct);
+		}*/
+	
+		 //upload the file
+		 if(!mProduct.getFile().getOriginalFilename().equals("") ){
+			FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode()); 
+		 } 
 		
 		
 		return "redirect:/manage/products?operation=product";

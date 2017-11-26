@@ -36,7 +36,8 @@
 					<!--Form Elements  -->
 					<!-- modelAtribute pentru a face legatura cu Controlerul , convertim sa fie ca un spring element -->
 					<sf:form class="form-horizontal" modelAttribute="product"
-						action="${contextRoot}/manage/products" method="POST">
+						action="${contextRoot}/manage/products" method="POST"  
+						enctype="multipart/form-data">
 
 						<div class="form-group">
 							<label class="control-label col-md-4" for="name">Enter Product Name: </label>
@@ -61,6 +62,15 @@
 							<div class="col-md-8">
 								<sf:input type="number" path="unitPrice" id="unitPrice" placeholder="Unit Price in Lei" class="form-control" />
 							      <sf:errors path="unitPrice" cssClass="help-block" element="em"/>
+							</div>
+						</div>
+						
+						<!-- File element for image upload -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="file">Select an Image: </label>
+							<div class="col-md-8">
+								<sf:input type="file" path="file" id="file"  class="form-control" />
+							  <%--     <sf:errors path="file" cssClass="help-block" element="em"/> --%>
 							</div>
 						</div>
 
