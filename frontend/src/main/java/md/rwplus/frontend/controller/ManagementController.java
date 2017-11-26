@@ -81,9 +81,16 @@ public class ManagementController {
 		//HttpServletRequest request pentru a afla calea cea reala
 		
 	
-				
+		if(mProduct.getId() == 0 ) {	
 		new ProductValidator().validate(mProduct, results);
-
+		}
+		else {
+			// edit check only when the file has been selected
+			if(!mProduct.getFile().getOriginalFilename().equals("")) {
+				new ProductValidator().validate(mProduct, results);
+			}	
+		}
+		
 		//check if there are any error
 		if(results.hasErrors()){
 			
@@ -99,14 +106,14 @@ public class ManagementController {
 		logger.info(mProduct.toString());
 		
 		//create a new product record
-		productDAO.add(mProduct);
-		
-	/*	if(mProduct.getId() == 0 ) {
+		if(mProduct.getId() == 0 ) {
+			//create a new product record if id is 0
 			productDAO.add(mProduct);
 		}
 		else {
+			//update the product if Id is not 0
 			productDAO.update(mProduct);
-		}*/
+		}
 	
 		 //upload the file
 		 if(!mProduct.getFile().getOriginalFilename().equals("") ){
@@ -118,21 +125,21 @@ public class ManagementController {
 	}
 	
 	
-	
-/*	@RequestMapping("/{id}/product")
-	public ModelAndView manageProductEdit(@PathVariable int id) {		
+	@RequestMapping(value ="/{id}/product", method = RequestMethod.GET)
+	public ModelAndView showEditProduct (@PathVariable int id) {		
 
 		ModelAndView mv = new ModelAndView("page");	
+		mv.addObject("userClickManageProducts",true);
 		mv.addObject("title","Product Management");		
-		mv.addObject("userClickManageProduct",true);
-		
-		// Product nProduct = new Product();		
-		mv.addObject("product", productDAO.get(id));
+		//fetch the product from the database
+		Product nProduct = productDAO.get(id);
+		//set the product fetch from the database
+		mv.addObject("product", nProduct);
 
 			
 		return mv;
 		
-	}*/
+	}
 	
 	
 	/*@RequestMapping(value = "/products", method=RequestMethod.POST)
