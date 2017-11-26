@@ -153,7 +153,7 @@
 						</tr>
 					</thead>
 
-					<tbody>
+			<%-- 		<tbody>
 						<tr>
 							<td>1</td>
 							<td><img class="adminDataTableImg"
@@ -167,7 +167,7 @@
 									<input type="checkbox" id="checkbox" checked="checked"
 									value="1" data-toggle="toggle" data-on="Enabled" data-off="Disabled" />
 									
-							</label>
+							     </label>
 							</td>
 							<td><a href="${contextRoot}/manage/1/product"
 								class="btn btn-warning"> <span
@@ -194,7 +194,7 @@
 									class="glyphicon glyphicon-pencil"></span>
 							</a></td>
 						</tr>
-					</tbody>
+					</tbody> --%>
 
 					<tfoot>
 						<tr>

@@ -106,7 +106,7 @@
 		 <script src="${js}/dataTables.bootstrap4.js"></script> 
 	
 	    <!-- Toogle switch js -->
-		 <script src="${js}/bootstrap-toggle.min.js"></script> 
+		<%--  <script src="${js}/bootstrap-toggle.min.js"></script>  --%>
 		 
 		 <!-- BootBox for display js -->
 		 <script src="${js}/bootbox.min.js"></script> 
