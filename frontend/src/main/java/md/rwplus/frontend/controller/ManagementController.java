@@ -22,6 +22,7 @@ import md.rwplus.backend.model.Product;
 import md.rwplus.backend.service.CategoryDAO;
 import md.rwplus.backend.service.ProductDAO;
 import md.rwplus.frontend.util.FileUploadUtility;
+import md.rwplus.frontend.validator.ProductValidator;
 
 @Controller
 @RequestMapping("/manage")
@@ -73,9 +74,19 @@ public class ManagementController {
 	@RequestMapping(value="/products", method = RequestMethod.POST)
 	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, 
 			BindingResult results, Model model, HttpServletRequest request){ 
-			//first bindingResult then Model, this is important
-			//BindingResult is used for validation.., and to pass any date use Model
-			//HttpServletRequest request pentru a afla calea cea reala
+		//first bindingResult then Model, this is important
+		//BindingResult is used for validation.., and to pass any date use Model
+		//HttpServletRequest request pentru a afla calea cea reala
+		
+	
+				
+		new ProductValidator().validate(mProduct, results);
+			
+				
+		
+		
+		
+		
 		//check if there are any error
 		if(results.hasErrors()){
 			
