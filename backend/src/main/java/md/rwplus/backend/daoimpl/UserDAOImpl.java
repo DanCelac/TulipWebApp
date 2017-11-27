@@ -1,5 +1,7 @@
 package md.rwplus.backend.daoimpl;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -89,33 +91,34 @@ public class UserDAOImpl implements UserDAO {
 	}	*/
 	
 
-/*	@Override
-	public List<Address> listShippingAddresses(int userId) {
-		String selectQuery = "FROM Address WHERE userId = :userId AND shipping = :isShipping ORDER BY id DESC";
+	@Override
+	public List<Address> listShippingAddresses(User user) {
+		String selectQuery = "FROM Address WHERE user = :user AND shipping = :shipping ";
 		return sessionFactory
 				.getCurrentSession()
 					.createQuery(selectQuery,Address.class)
-						.setParameter("userId", userId)
-						.setParameter("isShipping", true)
-							.getResultList();
+						.setParameter("user", user)
+				 		.setParameter("shipping", true)
+							.getResultList(); //pentru ca pot fi mai multe adrese
 		
 	}
-*/
-	/*@Override
-	public Address getBillingAddress(int userId) {
-		String selectQuery = "FROM Address WHERE userId = :userId AND billing = :isBilling";
+
+	@Override
+	public Address getBillingAddress(User user) {
+		String selectQuery = "FROM Address WHERE user = :user AND billing = :billing";
 		try{
 		return sessionFactory
 				.getCurrentSession()
 					.createQuery(selectQuery,Address.class)
-						.setParameter("userId", userId)
-						.setParameter("isBilling", true)
+						.setParameter("user", user)
+						.setParameter("billing", true)
 						.getSingleResult();
 		}
 		catch(Exception ex) {
+			ex.printStackTrace();
 			return null;
 		}
-	}*/
+	}
 
 /*	@Override
 	public User get(int id) {

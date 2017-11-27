@@ -110,7 +110,7 @@ public class UserTestCase {
 		assertEquals("Failed to add the user!", true, userDAO.addUser(user));	
 	}//end test method
 	*/
-
+/*
 	@Test
 	public void testUpdateCart(){
 		//fetch the user by its email
@@ -125,5 +125,72 @@ public class UserTestCase {
 		assertEquals("Failed to update the cart!", true, userDAO.updateCart(cart));
 		
 	}
+	*/
 	
+/*	@Test
+	public void testAddAddress(){
+		
+		//we need to add an user
+		user = new User() ;
+		user.setFirstName("Hristiniuc");
+		user.setLastName("Ion");
+		user.setEmail("hristiniuc@gmail.com");
+		user.setContactNumber("078234541");
+		user.setRole("USER");
+		user.setPassword("12345");
+		
+		
+		//add the user
+		assertEquals("Failed to add the user!", true, userDAO.addUser(user));	
+		
+		//we are going to add address for billing 
+		address = new Address();
+		address.setAddressLineOne("str.Mihai Eminescu");
+		address.setCity("Orhei");
+		address.setBilling(true);
+		
+		//atach the user to address
+		address.setUser(user);
+		assertEquals("Failed to add address!", true, userDAO.addAddress(address)); 	
+		
+		//we are also going to add a shipping address
+		address = new Address();
+		address.setAddressLineOne("str.Negruti 101");
+		address.setCity("Orhei");
+		// set the shipping to true
+		address.setShipping(true);
+		
+		address.setUser(user);
+		assertEquals("Failed to add shipping address!", true, userDAO.addAddress(address)); 	
+		
+	}
+	*/
+	
+	/*@Test
+	public void testAddAddress(){
+		
+		user = userDAO.getByEmail("hristiniuc@gmail.com");
+		//we are also going to add a shipping address
+				address = new Address();
+				address.setAddressLineOne("str.Tudor Vladimirescu");
+				address.setCity("Orhei");
+				// set the shipping to true
+				address.setShipping(true);
+				
+				address.setUser(user);
+				assertEquals("Failed to add shipping address!", true, userDAO.addAddress(address)); 	
+				
+	}*/
+	
+	@Test
+	public void testGetAddresses(){
+		user = userDAO.getByEmail("hristiniuc@gmail.com");
+		
+		assertEquals("Failed to fetch the list of address and size does not mach!",2,
+				      userDAO.listShippingAddresses(user).size()); 	
+		
+		assertEquals("Failed to fetch the billing address and size does not mach!","Orhei",
+			      userDAO.getBillingAddress(user).getCity()); 	
+		
+	}
 }

@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 //import org.hibernate.validator.constraints.NotBlank;
 
@@ -20,9 +21,19 @@ public class Address implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	/**************/
+	@ManyToOne
+	private User user;
 	
-	@Column(name = "user_id")
-	private int userId;
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	/*************/
 	
 	//@NotBlank(message = "Please enter address line one!")
 	@Column(name = "address_line_one")
@@ -43,14 +54,6 @@ public class Address implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 
 	public String getAddressLineOne() {
@@ -87,7 +90,7 @@ public class Address implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", userId=" + userId + ", addressLineOne=" + addressLineOne + ", city=" + city
+		return "Address [id=" + id + ", addressLineOne=" + addressLineOne + ", city=" + city
 				+ ", shipping=" + shipping + ", billing=" + billing + "]";
 	}
 	
