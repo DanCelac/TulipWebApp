@@ -21,8 +21,20 @@ public class Cart implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private int id;
 	
-	@Column(name = "user_id")
-	private int userId;
+    /* --------------*/
+	@OneToOne
+	//@JoinColumn(name="another foreigh key ") //ne ajuta sa schimbam cheia straina
+	private User user;
+	
+	// linking the cart with a user
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	/* --------------*/
 	
 	@Column(name = "grand_total")
 	private double grandTotal;
@@ -36,14 +48,6 @@ public class Cart implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 
 	public double getGrandTotal() {
@@ -67,14 +71,6 @@ public class Cart implements Serializable {
 		return "Cart [id=" + id + ", grandTotal=" + grandTotal + ", cartLines=" + cartLines + "]";
 	}
 	
-	// linking the cart with a user
-/*	@OneToOne
-	private User user;
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
-	*/
+	
+	
 }
