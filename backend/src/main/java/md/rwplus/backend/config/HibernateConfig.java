@@ -63,7 +63,9 @@ public class HibernateConfig {
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
 		
-		properties.put("hibernate.hbm2ddl.auto", "create"); //create  table if is not there or update if is there
+	//	properties.put("hibernate.hbm2ddl.auto", "create"); //create  table if is not there or update if is there
+		
+		properties.put("hibernate.hbm2ddl.auto", "update");  //nu va sterge datele din tabele
 		
 		return properties;
 	}

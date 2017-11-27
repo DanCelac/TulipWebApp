@@ -30,7 +30,7 @@ public class UserTestCase {
 	}
 	
 
-	@Test
+	/*@Test
 	public void testAdd() {
 		
 		user = new User() ;
@@ -77,46 +77,53 @@ public class UserTestCase {
 			// add the shipping address
 		    assertEquals("Failed to add shipping address!", true, userDAO.addAddress(address));
 	    }
-	    
-	    
-	    
-	    
-		
-		
 	}//end test method
+	*/
 	
+ 
 	
-
-	// working for uni-directional
-/*
-	@Test
-	public void testAddAddress() {
-		user = userDAO.get(1);
+	//============
+/*	@Test
+	public void testAdd() {
 		
-		address = new Address();
-		address.setAddressLineOne("301/B Jadoo Society, King Uncle Nagar");
-		address.setAddressLineTwo("Near Store");
-		address.setCity("Mumbai");
-		address.setState("Maharashtra");
-		address.setCountry("India");
-		address.setPostalCode("400001");
-				
-		address.setUser(user);
-		// add the address
-		assertEquals("Failed to add the address!", true, userDAO.addAddress(address));	
-	}
-	
+		user = new User() ;
+		user.setFirstName("Hristiniuc");
+		user.setLastName("Ion");
+		user.setEmail("hristiniuc@gmail.com");
+		user.setContactNumber("078234541");
+		user.setRole("USER");
+		user.setPassword("12345");
+
+	    if(user.getRole().equals("USER")){
+	    	
+	    	//create a cart for this user
+	    	cart = new Cart();
+	    	
+	    	cart.setUser(user);
+	    	
+	    	//attach cart with the user
+	    	user.setCart(cart);
+	    	
+	    }
+	    
+		//add the user
+		assertEquals("Failed to add the user!", true, userDAO.addUser(user));	
+	}//end test method
+	*/
+
 	@Test
-	public void testUpdateCart() {
-		user = userDAO.get(1);
+	public void testUpdateCart(){
+		//fetch the user by its email
+		user = userDAO.getByEmail("dancelac@mail.ru");
+		
+		//get the cart of the user
 		cart = user.getCart();
-		cart.setGrandTotal(10000);
-		cart.setCartLines(1);
-		assertEquals("Failed to update the cart!", true, userDAO.updateCart(cart));			
-	} 
-
-*/
-	
-
+		
+		cart.setGrandTotal(5555);
+		
+		cart.setCartLines(2);
+		assertEquals("Failed to update the cart!", true, userDAO.updateCart(cart));
+		
+	}
 	
 }

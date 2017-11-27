@@ -7,14 +7,14 @@ import md.rwplus.backend.model.User;
 public interface UserDAO {
 	
 	// user related operation
-		//User getByEmail(String email);
+	    User getByEmail(String email);
 	//	User get(int id);
         //add an user
 		boolean addUser(User user);
 		// add an address
 		boolean addAddress(Address address);
-		//add a cart
-		boolean addCart(Cart cart);
+		//update a cart
+		boolean updateCart(Cart cart);
 		// adding and updating a new address
 		//Address getAddress(int addressId);
 		//boolean addAddress(Address address);

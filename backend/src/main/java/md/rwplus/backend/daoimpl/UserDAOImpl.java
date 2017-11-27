@@ -47,10 +47,10 @@ public class UserDAOImpl implements UserDAO {
 
 
 	@Override
-	public boolean addCart(Cart cart) {
+	public boolean updateCart(Cart cart) {
 		try {			
 			// will look for this code later and why we need to change it
-			sessionFactory.getCurrentSession().persist(cart);			
+			sessionFactory.getCurrentSession().update(cart);			
 			return true;
 		}
 		catch(Exception ex) {
@@ -60,21 +60,22 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	
-	/*@Override
+	@Override
 	public User getByEmail(String email) {
-		String selectQuery = "FROM User WHERE email = :email";
-		try {
+		String selectQuery = "FROM User WHERE email = :email"; //daca la clasa user la entity nu specificam ceva denumire
+		try {                                                  //cind facem select vom pune numele clasei
 		return sessionFactory
 				.getCurrentSession()
 					.createQuery(selectQuery,User.class)
 						.setParameter("email",email)
-							.getSingleResult();
+							.getSingleResult(); //pentru ca vrem sa returnam doar un single user
 		}
 		catch(Exception ex) {
+			ex.printStackTrace();  
 			return null;
 		}
 							
-	}*/
+	}
 	
 	/*@Override
 	public boolean updateAddress(Address address) {
