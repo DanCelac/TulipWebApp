@@ -5,16 +5,16 @@
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 	
 
-	<!-- <var name="user" class="net.kzn.shoppingbackend.dto.User"/>
-	<var name="billing" class="net.kzn.shoppingbackend.dto.Address"/> -->
+	<var name="user" class="md.rwplus.backend.model.User"/>
+	<var name="billing" class="md.rwplus.backend.model.Address"/>
 
 <!-- 	<on-start>
 		<evaluate expression="registerHandler.init()" result="flowScope.registerModel"/>
 	</on-start> -->
 
 	<!-- view the signup-personal page -->
-	<view-state id="personal" view="flows/register/signup-personal" >
-		<!-- <transition on="billing" to="validate" /> -->
+	<view-state id="personal" view="flows/register/signup-personal"  model="user">
+		<transition on="billing" to="billing" />  <!-- name="_eventId_billing" de aceia trebuia sa adaugam aici transition on=billing numele dat _eventId_billing, cei inainte este standart-->
 		<!-- <on-exit>
 			<evaluate expression="registerHandler.addUser(flowScope.registerModel, user)" />			
 		</on-exit> -->
@@ -27,21 +27,23 @@
 		<transition on="failure" to="personal"/>
 	</action-state> -->
 	
-<!-- 	view the signup-billing page -->
-<!-- 	<view-state id="billing" view="flows/membership/signup-billing" model="billing">		
+       <!--view the signup-billing page -->
+	<view-state id="billing" view="flows/register/signup-billing"  model="billing">		
 		<transition on="confirm" to="confirm" />
 		<transition on="personal" to="personal" />	
-		<on-exit>
+		<!-- <on-exit>
 			<evaluate expression="registerHandler.addBilling(flowScope.registerModel, billing)" />
-		</on-exit>
-	</view-state> -->
+		</on-exit>  -->
+	</view-state>
 	
-<!-- 	view the signup-confirm page	 -->
-	<!-- <view-state id="confirm" view="flows/membership/signup-confirm" model="flowScope.registerModel">		
-		<transition on="submit" to="submit" />
-		<transition on="billing" to="billing" />
+      <!--view the signup-confirm page	 -->
+	<view-state id="confirm" view="flows/register/signup-confirm" >		
 		<transition on="personal" to="personal" />	
-	</view-state> -->
+		<transition on="billing" to="billing" />
+		<transition on="success" to="success" />
+		
+		
+	</view-state>
 	
 	<!-- handle the submit action -->
 	<!-- <action-state id="submit">
@@ -50,7 +52,7 @@
 	</action-state> -->
 	
 	<!-- end state -->
-<!-- 	<end-state  id="success" view="flows/membership/signup-success" /> -->
+	<end-state  id="success" view="flows/register/signup-success" />
 	<end-state id="home" view="externalRedirect:contextRelative:/" />
 
 <!-- 	Global Transition  -->
