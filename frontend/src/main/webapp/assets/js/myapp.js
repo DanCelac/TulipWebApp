@@ -254,8 +254,44 @@ if ($adminProductsTable.length) {
 	
 
 	//************
-	
-	
+	//validation code for category
+	var $categoryForm = $('#categoryForm');
+  
+      if($categoryForm.length) {
+		
+		$categoryForm.validate({			
+				rules: {
+					name: {
+						required: true,
+						minlength: 2
+					},
+					description: {
+						required: true,
+						minlength: 3					
+					}				
+				},
+				messages: {					
+					name: {
+						required: 'Please add the category name!',
+						minlength: 'Please enter at least two characters'
+					},
+					description: {
+						required: 'Please add a description for this category !',
+						minlength: 'Please enter at least three characters'
+					}					
+				},
+				errorElement: 'em',
+				errorPlacement: function(error, element) {
+					//add the class of the help_block
+				      error.addClass('help-block');
+					  // add the error element after the input element 
+					  error.insertAfter(element)
+					//errorPlacement(error, element);
+				}				
+			});
+		
+	}//end if
+	//------------------------ 
 	
 
 	
