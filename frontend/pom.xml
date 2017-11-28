@@ -15,6 +15,7 @@
 		<spring.version>4.3.12.RELEASE</spring.version>
 		<!-- <springframework.version>4.0.6.RELEASE</springframework.version> -->
 		<hibernate.version>4.3.6.Final</hibernate.version>
+		<spring.security.version>4.2.3.RELEASE</spring.security.version>
 		<!-- <argLine>-Dorg.osgi.framework.bundle.parent=ext</argLine> pentru nashrom 
 			class nofound -->
 	</properties>
@@ -122,6 +123,22 @@
 			<groupId>org.springframework.webflow</groupId>
 			<artifactId>spring-webflow</artifactId>
 			<version>2.4.6.RELEASE</version>
+		</dependency>
+		<!-- Spring security , pentru logare-->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
 		</dependency>
 
 

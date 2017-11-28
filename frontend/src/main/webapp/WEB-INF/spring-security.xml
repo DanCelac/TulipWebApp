@@ -1,0 +1,26 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+	<http>
+		<intercept-url pattern="/**" access="hasAuthority('USER')" /> <!-- /*= /abc SI GATA, /** = /abc/pgf/dsd/dada/ si asa mai departe -->
+		<form-login />           <!--    access="hasRole('USER')"  " authorities="ROLE_USER,  ROLE_ADMIN-->
+		<logout />               <!--  access="hasAuthority('USER')    authorities="USER, ADMIN" -->
+	</http>
+    
+    <!-- specificam cine este adminul la aplicatia noastra -->
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<!-- Normally passwords should be hashed using BCrypt -->   <!-- ROLE_USER , trebuie sa corespunda cu cel de sus access="hasRole("USER") -->
+				<user name="Dan" password="079176572d" authorities="USER, ADMIN" /> <!-- daca falosim hasRole ROLE_USER si nu doar USER, altfel va da eroare -->
+	
+			</user-service>
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>

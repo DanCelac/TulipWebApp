@@ -9,19 +9,19 @@
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
-		  <param-name>throwExceptionIfNoHandlerFound</param-name>
+			<param-name>throwExceptionIfNoHandlerFound</param-name>
 			<param-value>true</param-value>
 		</init-param>
-		 <load-on-startup>1</load-on-startup>
-		 
-		<!--  For upload the image at 4 mb size -->
-		 <multipart-config>
-			<max-file-size>2097152</max-file-size> <!-- for 2 mb  1024 * 1024 * 2 = 2097152 -->
-			<max-request-size>4194304</max-request-size> <!-- for 4 mb 1024 * 1024 * 4 = 4194304  -->
-			<file-size-threshold>1048576</file-size-threshold> <!-- for 1 mb 1024 * 1024 * 1 =1048576  -->
+		<load-on-startup>1</load-on-startup>
+
+		<!-- For upload the image at 4 mb size -->
+		<multipart-config>
+			<max-file-size>2097152</max-file-size> <!-- for 2 mb 1024 * 1024 * 2 = 2097152 -->
+			<max-request-size>4194304</max-request-size> <!-- for 4 mb 1024 * 1024 * 4 = 4194304 -->
+			<file-size-threshold>1048576</file-size-threshold> <!-- for 1 mb 1024 * 1024 * 1 =1048576 -->
 		</multipart-config>
 	</servlet>
- 
+
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
@@ -40,6 +40,31 @@
 		<url-pattern>*.png</url-pattern>
 	</servlet-mapping>
 
+	<!-- Spring Security configuration, pentru logare -->
+      <!-- am adaugat un filter DelegatinfFilterProxy -->
+      <!-- this is a bean springSecurityFilterChain , inside our spring security, witch we will configurate in another xml file spring-security.xml -->
+	<listener>
+	     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> <!-- load a particular context file -->
+	</listener>
+	
+	<context-param>
+	
+	          <param-name>contextConfigLocation</param-name> <!-- este caseSensiteve need like this -->
+	          <param-value>
+	                /WEB-INF/spring-security.xml <!-- location a our spring security file, daca avem mai multe filuri, punem virgula si punem urmatorul -->
+	          </param-value>
+	
+	</context-param>
+	
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern> <!-- for all the request -->
+	</filter-mapping>
 
 
 </web-app>
