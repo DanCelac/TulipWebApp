@@ -11,6 +11,9 @@
 
 
     <context:component-scan base-package="md.rwplus.backend" /> <!--  daca era in dispatcher-servlet dadea eroare -->
+    <beans:bean id="passwordEncoder" 
+               class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+     </beans:bean>
   
     <http pattern="/resources/**" security="none"/> <!-- pentru ca pagina din start cind intram sa fie aplicat css-ul -->
                                                     <!-- pentru static resources nu vom pune securitate -->
@@ -34,7 +37,9 @@
     <!-- specificam cine este adminul la aplicatia noastra -->
 	<authentication-manager>
 		<authentication-provider>
-			
+		
+		     <password-encoder ref="passwordEncoder"/>
+
 				<!-- <user-service>
 				Normally passwords should be hashed using BCrypt   ROLE_USER , trebuie sa corespunda cu cel de sus access="hasRole("USER")
 				<user name="Dan" password="079176572d" authorities="USER, ADMIN" /> daca falosim hasRole ROLE_USER si nu doar USER, altfel va da eroare

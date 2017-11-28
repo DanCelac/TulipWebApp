@@ -3,6 +3,7 @@ package md.rwplus.frontend.handler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import md.rwplus.backend.model.Address;
@@ -16,6 +17,8 @@ public class RegisterHandler {
 	
 	@Autowired
 	private UserDAO userDAO;
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	public RegisterModel init(){
 		
@@ -69,7 +72,8 @@ public class RegisterHandler {
 		  }
 		   
 		  // encode the password
-		// user.setPassword(passwordEncoder.encode(user.getPassword()));
+		 user.setPassword(passwordEncoder.encode(user.getPassword()));
+		  
 		  
 		  // save the user
 		  userDAO.addUser(user);
