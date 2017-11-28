@@ -16,10 +16,18 @@
                                                     <!-- pentru static resources nu vom pune securitate -->
 
 	<http>
-		<intercept-url pattern="/login" access="permitAll" />
-		<intercept-url pattern="/**" access="hasAuthority('USER')" /> <!-- /*= /abc SI GATA, /** = /abc/pgf/dsd/dada/ si asa mai departe -->
-		<form-login login-page="/login"/> <!-- in page controller va fi requestMapping login -->           <!--    access="hasRole('USER')"  " authorities="ROLE_USER,  ROLE_ADMIN-->
-		<logout />               <!--  access="hasAuthority('USER')    authorities="USER, ADMIN" -->
+	    <!-- only admin access -->
+	    <intercept-url pattern="/manage/**" access="hasAuthority('ADMIN')"/>
+	    
+	    <!-- only user access (who is registered) -->
+	    <intercept-url pattern="/cart/**" access="hasAuthority('USER')"/>
+	    
+	    <!-- rest of the word -->
+		<intercept-url pattern="/**" access="permitAll" /> <!-- /*= /abc SI GATA, /** = /abc/pgf/dsd/dada/ si asa mai departe -->
+		
+		<form-login login-page="/login" /> <!-- in page controller va fi requestMapping login -->           <!--    access="hasRole('USER')"  " authorities="ROLE_USER,  ROLE_ADMIN-->
+		<logout />   
+		<access-denied-handler error-page="/access-denied"/>           
 	   <!--  <csrf disabled="true"/> not recommanded -->
 	</http>
     
