@@ -15,18 +15,18 @@
 
 	<!-- is the start  state -->
 	<view-state id="personal" view="flows/register/signup-personal"  model="user">
-		<transition on="billing" to="billing" />  <!-- name="_eventId_billing" de aceia trebuia sa adaugam aici transition on=billing numele dat _eventId_billing, cei inainte este standart-->
+		<transition on="billing" to="validate" /> <!--billing merge apoi to validate  se duce mai jos la validate  -->  <!-- name="_eventId_billing" de aceia trebuia sa adaugam aici transition on=billing numele dat _eventId_billing, cei inainte este standart-->
 		<on-exit>
 			<evaluate expression="registerHandler.addUser(flowScope.registerModel, user)"/>  <!-- in RegisterHandler class trebu sa cream acesta metoda addUser -->		
 		</on-exit>
 	</view-state>
 
 	<!-- validate signup-personal page -->
-<!-- 	<action-state id="validate">
+	<action-state id="validate">  <!-- validam ca email sa fie unic deoarece va servi ca logare, si password sa fie indentic si in re-password -->
 		<evaluate expression="registerHandler.validateUser(user,messageContext)" />
-		<transition on="success" to="billing"/>
-		<transition on="failure" to="personal"/>
-	</action-state> -->
+		<transition on="success" to="billing"/><!--  daca avem validate la user atunci ne ducem la billing, adica adresa de facturare -->
+		<transition on="failure" to="personal"/> <!-- daca a esuat ne ducem la personal page adica formularul de inregistrare user -->
+	</action-state>
 	
        <!--view the signup-billing page -->
 	<view-state id="billing" view="flows/register/signup-billing"  model="billing">		
@@ -56,7 +56,7 @@
 
 <!-- 	Global Transition  -->
 	<global-transitions>
-		<transition on="home" to="home" validate="false" />
+		<transition on="home" to="home" validate="false" />   <!-- validate="false"  deoarece daca o sa ne intoarcem la pagina home ne va cere sa fie validate toare cimpurile din formular, by default it's true--> 
 	</global-transitions>
 	
 </flow>

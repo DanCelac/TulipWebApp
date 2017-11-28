@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 
 //import org.hibernate.validator.constraints.NotBlank;
 
@@ -39,11 +39,11 @@ public class Address implements Serializable {
 	@Column(name = "user_id")
 	private int userId;
 	
-	//@NotBlank(message = "Please enter address line one!")
+	@NotBlank(message = "Please enter address !")
 	@Column(name = "address_line_one")
 	private String addressLineOne;
 	
-	//@NotBlank(message = "Please enter City!")	
+	@NotBlank(message = "Please enter City!")	
 	private String city;
 	
 	@Column(name="is_shipping")
