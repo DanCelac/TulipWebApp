@@ -23,7 +23,7 @@ public class Address implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	/**************/
-	@ManyToOne
+	/*@ManyToOne
 	private User user;
 	
 	public User getUser() {
@@ -32,9 +32,12 @@ public class Address implements Serializable {
 
 	public void setUser(User user) {
 		this.user = user;
-	}
+	}*/
 
 	/*************/
+	
+	@Column(name = "user_id")
+	private int userId;
 	
 	//@NotBlank(message = "Please enter address line one!")
 	@Column(name = "address_line_one")
@@ -55,6 +58,14 @@ public class Address implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getAddressLineOne() {
@@ -91,11 +102,13 @@ public class Address implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", addressLineOne=" + addressLineOne + ", city=" + city
-				+ ", shipping=" + shipping + ", billing=" + billing + "]";
+		return "Address [id=" + id + ", userId=" + userId + ", addressLineOne=" + addressLineOne
+				+ ", city=" + city + ", shipping=" + shipping + ", billing=" + billing + "]";
 	}
-	
 
+	
+	
+	
 	
 	
 	

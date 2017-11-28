@@ -7,17 +7,18 @@
 
 	<var name="user" class="md.rwplus.backend.model.User"/>
 	<var name="billing" class="md.rwplus.backend.model.Address"/>
-
-<!-- 	<on-start>
+	
+	<!-- returning and adding inside the flow a register Model isntante -->
+	<on-start>
 		<evaluate expression="registerHandler.init()" result="flowScope.registerModel"/>
-	</on-start> -->
+	</on-start>
 
-	<!-- view the signup-personal page -->
+	<!-- is the start  state -->
 	<view-state id="personal" view="flows/register/signup-personal"  model="user">
 		<transition on="billing" to="billing" />  <!-- name="_eventId_billing" de aceia trebuia sa adaugam aici transition on=billing numele dat _eventId_billing, cei inainte este standart-->
-		<!-- <on-exit>
-			<evaluate expression="registerHandler.addUser(flowScope.registerModel, user)" />			
-		</on-exit> -->
+		<on-exit>
+			<evaluate expression="registerHandler.addUser(flowScope.registerModel, user)"/>  <!-- in RegisterHandler class trebu sa cream acesta metoda addUser -->		
+		</on-exit>
 	</view-state>
 
 	<!-- validate signup-personal page -->
@@ -31,25 +32,23 @@
 	<view-state id="billing" view="flows/register/signup-billing"  model="billing">		
 		<transition on="confirm" to="confirm" />
 		<transition on="personal" to="personal" />	
-		<!-- <on-exit>
-			<evaluate expression="registerHandler.addBilling(flowScope.registerModel, billing)" />
-		</on-exit>  -->
+		<on-exit>
+			<evaluate expression="registerHandler.addBilling(flowScope.registerModel, billing)" /> <!-- anainte ca sa se inchida datele vor fi salvate -->
+		</on-exit> 
 	</view-state>
 	
       <!--view the signup-confirm page	 -->
-	<view-state id="confirm" view="flows/register/signup-confirm" >		
+	<view-state id="confirm" view="flows/register/signup-confirm" model="flowScope.registerModel" >	<!-- model="flowScope. este ceva implicit, standart-->
 		<transition on="personal" to="personal" />	
 		<transition on="billing" to="billing" />
-		<transition on="success" to="success" />
-		
-		
+		<transition on="submit" to="submit" />
 	</view-state>
 	
 	<!-- handle the submit action -->
-	<!-- <action-state id="submit">
+	<action-state id="submit">
 		<evaluate expression="registerHandler.saveAll(flowScope.registerModel)" />
-		<transition on="success" to="success"/>
-	</action-state> -->
+		<transition on="success" to="success"/> <!-- va face submit doar cind totul este ok si se va duce la end state flows/register/signup-success de mai jos -->
+	</action-state>
 	
 	<!-- end state -->
 	<end-state  id="success" view="flows/register/signup-success" />

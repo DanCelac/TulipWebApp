@@ -125,14 +125,6 @@ public class User implements Serializable{
 				+ enabled + "]";
 	}
 	
-/*	
-	@OneToOne(mappedBy="user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Cart cart;
-	public Cart getCart() {
-		return cart;
-	}
-	public void setCart(Cart cart) {
-		this.cart = cart;
-	}*/
+
 	
 }

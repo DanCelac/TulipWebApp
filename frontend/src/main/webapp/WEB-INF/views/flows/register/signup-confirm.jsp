@@ -15,16 +15,17 @@
 				</div>
 			
 				<div class="card-body">
-				    <!-- code to display the personal detail -->
-					<%-- <div class="text-center">
-						<h3>Name : <strong>${registerModel.user.firstName} ${registerModel.user.lastName}</strong></h3>
-						<h4>Email : <strong>${registerModel.user.email}</strong></h4>
-						<h4>Contact : <strong>${registerModel.user.contactNumber}</strong></h4>
-						<h4>Role : <strong>${registerModel.user.role}</strong></h4>
-						<p>
+				    <!-- code to display the personal detail to the user-->
+					<div class="text-center">
+						
+						<h4>${registerModel.user.firstName} ${registerModel.user.lastName}</h4> <!-- pentru a afisa numele utilizatorului inregistrat dinamic -->
+						<h5>Email: ${registerModel.user.email}</h5>
+						<h5>Contact Number: ${registerModel.user.contactNumber}</h5>
+						<h5>Role: ${registerModel.user.role}</h5>
+						<%-- <p>
 							<a href="${flowExecutionUrl}&_eventId_personal" class="btn btn-primary">Edit</a>
-						</p>
-					</div> --%>
+						</p> --%>
+					</div>
 				</div>
 				
 				<div class="card-footer">
@@ -48,14 +49,11 @@
 				<div class="card-body">
 				     <!-- code to display the communication address -->
 				     
-					<%-- <div class="text-center">
-						<p>${registerModel.billing.addressLineOne}, </p>
-						<p>${registerModel.billing.city} -  ${registerModel.billing.postalCode}, </p>
-
-						<p>
-							<a href="${flowExecutionUrl}&_eventId_billing" class="btn btn-primary">Edit</a>
-						</p>
-					</div> --%>
+					<div class="text-center">
+						
+						<h4>${registerModel.billing.addressLineOne}</h4> 
+						<h4>${registerModel.billing.city}</h4> 
+					</div>
 				</div>
 				<div class="card-footer">
 				     <!-- anchor to move to the edit of address -->
@@ -77,7 +75,7 @@
 			<div class="text-center">
 				<!-- anchor to move to the success page -->
 				 
-				 <a href="${flowExecutionUrl}&_eventId_success" class="btn  btn-primary">Confirm</a> 
+				 <a href="${flowExecutionUrl}&_eventId_submit" class="btn  btn-primary">Confirm</a> 
 			</div>
 			
 		</div>
