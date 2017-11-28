@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import md.rwplus.backend.model.Category;
@@ -127,4 +128,17 @@ public class PageController {
 		return mv;
 	}
 
+	/*
+	 * Login
+	 */
+	@RequestMapping(value = "/login")
+	public ModelAndView login(@RequestParam(name="error", required = false) String error ) {
+		ModelAndView mv = new ModelAndView("login"); //vom face o pagina aparte login
+		
+		if(error!=null){ //error String!= null
+			mv.addObject("message", "Invalid Email and Password !");
+		}
+		mv.addObject("title", "Login");
+		return mv;
+	}
 }

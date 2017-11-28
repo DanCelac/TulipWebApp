@@ -19,6 +19,11 @@
 <meta name="description" content="Site for selling products">
 <meta name="author" content="Celac Dan">
 
+<!-- pentru token de la CSRF ca sa putem dezactiva produsul, adica ii dam un token si pentru a dezactiva produsul  -->
+<meta name="_csrf" content="${_csrf.token}">  
+<meta name="_csrf_header" content="${_csrf.headerName}">
+
+
 <title>Café Tulip - ${title}</title>
 
 <script type="text/javascript">

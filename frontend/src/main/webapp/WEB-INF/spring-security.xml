@@ -11,12 +11,16 @@
 
 
     <context:component-scan base-package="md.rwplus.backend" /> <!--  daca era in dispatcher-servlet dadea eroare -->
-
+  
+    <http pattern="/resources/**" security="none"/> <!-- pentru ca pagina din start cind intram sa fie aplicat css-ul -->
+                                                    <!-- pentru static resources nu vom pune securitate -->
 
 	<http>
+		<intercept-url pattern="/login" access="permitAll" />
 		<intercept-url pattern="/**" access="hasAuthority('USER')" /> <!-- /*= /abc SI GATA, /** = /abc/pgf/dsd/dada/ si asa mai departe -->
-		<form-login />           <!--    access="hasRole('USER')"  " authorities="ROLE_USER,  ROLE_ADMIN-->
+		<form-login login-page="/login"/> <!-- in page controller va fi requestMapping login -->           <!--    access="hasRole('USER')"  " authorities="ROLE_USER,  ROLE_ADMIN-->
 		<logout />               <!--  access="hasAuthority('USER')    authorities="USER, ADMIN" -->
+	   <!--  <csrf disabled="true"/> not recommanded -->
 	</http>
     
     <!-- specificam cine este adminul la aplicatia noastra -->
