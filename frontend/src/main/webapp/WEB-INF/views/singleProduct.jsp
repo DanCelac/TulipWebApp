@@ -1,3 +1,5 @@
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>  
+
 <div class = "container">
 
 	<!-- Breadcrumb -->
@@ -51,19 +53,22 @@
 			<hr/>
 
 			
-			<%--   <security:authorize access="isAnonymous() or hasAuthority('USER')">	 --%>
+			  <security:authorize access="hasAuthority('USER')">
 
-		
-				
-						
-				
 				<a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-success">
 				<span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</a>
 				
 				<a href="${contextRoot}/show/all/products/${product.id}/product" class="btn btn-primary"> Back</a>
 				
 				<hr/><hr/><hr/>
-				
+			 </security:authorize>	
+			  <security:authorize access="hasAuthority('ADMIN')">
+			   
+			     <a href="${contextRoot}/manage/${product.id}/product" class="btn btn-warning">
+				<span class="glyphicon glyphicon-pencil"></span> Edit</a>
+			   
+			   <a href="${contextRoot}/show/all/products/${product.id}/product" class="btn btn-primary"> Back</a>
+			  </security:authorize>
 						
 		
 			

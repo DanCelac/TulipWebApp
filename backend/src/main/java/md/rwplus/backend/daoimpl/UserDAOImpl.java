@@ -73,7 +73,7 @@ public class UserDAOImpl implements UserDAO {
 							.getSingleResult(); //pentru ca vrem sa returnam doar un single user
 		}
 		catch(Exception ex) {
-			ex.printStackTrace();  
+			//ex.printStackTrace();  
 			return null;
 		}
 							
