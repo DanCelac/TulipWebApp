@@ -52,39 +52,46 @@
 			<div class="row">
 			
 				<div class="col-lg-12">
-				
-					
-					<table id="productListTable" class="table table-striped table-borderd">
+				              <!-- ca sa facem tabela responsive -->
+				   <div class="container-fluid">
+				        <div  class="table-responsive">
+				            <table id="productListTable" class="table table-striped table-borderd">
 					 
 					
-						<thead>
-					
-							<tr>
-							    <th></th>
-   								<th>Name</th>
-								<th>Description</th>
-								<th>Price</th>
-								<th></th>
-
+								<thead>
 							
-							</tr>
-						
-						</thead>
+									<tr>
+									    <th></th>
+		   								<th>Name</th>
+										<th>Description</th>
+										<th>Price</th>
+										<th></th>
+		 
+									
+									</tr>
+								
+								</thead>
 					
 
-						 <tfoot>
-						
-							<tr>
-							    <th></th>
-								<th>Name</th>
-								<th>Description</th>
-								<th>Price</th>
-								<th></th>
-							
-							</tr>
-						
-						</tfoot> 
+								 <tfoot>
+								
+									<tr>
+									    <th></th>
+										<th>Name</th>
+										<th>Description</th>
+										<th>Price</th>
+										<th></th>
+									
+									</tr>
+								
+								</tfoot> 
 					</table>
+				        
+				        </div>
+				   
+				   </div>
+					
+					
 				
 				</div>
 			

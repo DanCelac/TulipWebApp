@@ -50,6 +50,7 @@ if ($table.length) {
 		}
  
 		$table.DataTable({
+			scrollX: true,
 			lengthMenu: [ [ 3, 5, 10, -1 ],
 							[ '3 Records', '5 Records', '10 Records', 'ALL' ] ],
 					pageLength: 5,
@@ -103,7 +104,7 @@ if ($table.length) {
 									}
 									
 									
-                                     return str;
+                                     return str; 
 
 								}
 

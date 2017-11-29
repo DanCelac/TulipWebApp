@@ -60,7 +60,7 @@
 				
 				<a href="${contextRoot}/show/all/products/${product.id}/product" class="btn btn-primary"> Back</a>
 				
-				<hr/><hr/><hr/>
+			  <hr/>
 			 </security:authorize>	
 			  <security:authorize access="hasAuthority('ADMIN')">
 			   
@@ -68,23 +68,9 @@
 				<span class="glyphicon glyphicon-pencil"></span> Edit</a>
 			   
 			   <a href="${contextRoot}/show/all/products/${product.id}/product" class="btn btn-primary"> Back</a>
+			   <hr/>
 			  </security:authorize>
-						
-		
-			
-		
-			
-		<%-- 	
-			<security:authorize access="hasAuthority('ADMIN')">
-				<a href="${contextRoot}/manage/${product.id}/product" class="btn btn-success">
-				<span class="glyphicon glyphicon-pencil"></span> Edit</a>
-			</security:authorize>	
-						
-			
 
-			<a href="${contextRoot}/show/all/products" class="btn btn-warning">
-				Continue Shopping</a>
-					 --%>
 		</div>
 
 	
