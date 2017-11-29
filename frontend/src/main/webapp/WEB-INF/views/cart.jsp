@@ -39,12 +39,12 @@
 								</div>
 							</td>
 							<td data-th="Price">${cartLine.buyingPrice} Lei</td>
-							<td data-th="Quantity">
-								<input type="number" class="form-control text-center" value="${cartLine.productCount}">
+							<td data-th="Quantity">   <!-- max 5, pentru ca sa nu poata adauga mai mult de produse de un fel -->
+								<input type="number" id="count_${cartLine.id}" min="1" max="5" class="form-control text-center" value="${cartLine.productCount}">
 							</td>
 							<td data-th="Subtotal" class="text-center">${cartLine.total}</td>
 							<td class="actions" data-th="">
-								<button class="btn btn-info btn-sm"><span class="glyphicon glyphicon-refresh"></span></button>
+								<button type="button" name="refreshCart" value="${cartLine.id}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-refresh"></span></button>
 								<button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>								
 							</td>
 						</tr>

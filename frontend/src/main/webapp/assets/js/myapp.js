@@ -354,9 +354,48 @@ if ($adminProductsTable.length) {
 		
 	}//end if
 	//------------------------
+	//handling the click event of refresh cart button
+	
+		$('button[name="refreshCart"]').click(function(){
+			//fetch the cart lineId
+		var cartLineId = $(this).attr('value'); //will give the atribut value,    value="${cartLine.id} witch is in button refresh
+		var countElement = $('#count_' + cartLineId); //id is count_  +     id=count_${cartLine.id}
+		
+		var originalCount = countElement.attr('value');   //value="${cartLine.productCount} witch we set
+		var currentCount = countElement.val(); //val is for update reset the number for that particular element
+		 
+		//work only when  the count has changed, daca element este din numarul de produse este unu nu va lucra, daca va fi 5 produse se va reseta cu 1
+		if(currentCount !== originalCount) {	 
+			// check if the quantity is within the specified range
+			if((currentCount < 1) || (currentCount > 5)) {
+				
+				// console.log("current count: " + currentCount); //only for developer purpose, to see in console if works
+				// console.log("original count: " + originalCount);
+				
+				//reverting back to the original count
+				//user has given value below 1 and above 3
+				countElement.val(originalCount);
+				bootbox.alert({   //bootbox jquery care l-am scos din internet, pentru a aparea mesaje de alerta daca ceva nu merge ok
+					size: 'medium', 
+			    	title: 'Error',
+			    	message: 'Product Count should be minimum 1 and maximum 5!'
+				});
+			}
+			else {
+				// use the window.location.href property to send the request to the server
+				var updateUrl = window.contextRoot + '/cart/' + cartLineId + '/update?count=' + currentCount;
+				//forward it to the controller, pentru a face update si la url daca se schimba count
+				window.location.href = updateUrl;
+			}
+		}
+	});	
+	
+	
+	
+	
 	
 
-	
+	//----------------------
 }); //end function
 
 
