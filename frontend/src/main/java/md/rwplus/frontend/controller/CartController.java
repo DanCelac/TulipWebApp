@@ -3,8 +3,9 @@ package md.rwplus.frontend.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import md.rwplus.frontend.service.CartService;
 
 @Controller
 @RequestMapping("/cart")
@@ -13,7 +14,7 @@ public class CartController {
 	//private final static Logger logger = LoggerFactory.getLogger(CartController.class);
 	
 	@Autowired
-	//private CartService cartService;
+	private CartService cartService;
 	
 	@RequestMapping("/show")
 	public ModelAndView showCart(/*@RequestParam(name = "result", required = false) String result*/) {	
@@ -53,7 +54,7 @@ public class CartController {
 			}
 		}*/
 
-		mv.addObject("cartLines", null /*cartService.getCartLines()*/);
+		mv.addObject("cartLines", cartService.getCartLines());
 		return mv;
 		
 	}
@@ -86,7 +87,7 @@ public class CartController {
 		String response = cartService.validateCartLine();
 		if(!response.equals("result=success")) {
 			return "redirect:/cart/show?"+response;
-		}
+		
 		else {
 			return "redirect:/cart/checkout";
 		}
