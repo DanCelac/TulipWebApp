@@ -74,14 +74,23 @@
 		<div class="content">
 			
 			<div class="container">
+			       
+			        <!-- this will be displayed only the user has logged out  -->
+			      <c:if test="${not empty message }">
+			         <div class="row">
+			              <div class="mx-auto col-md-6">
+			                   <div class="alert alert-danger"> ${message }</div>
+			              </div>  
+			         </div> 
+			     </c:if>
 			        <!-- this will be displayed if the password and email are wrong  -->
-			        <c:if test="${not empty message }">
-			           <div class="mx-auto col-md-6">
-			               <div class="alert alert-danger"> ${message }</div>
-			           </div>
-			           
-			        
-			        </c:if>
+			      <c:if test="${not empty logout }">
+			         <div class="row">
+			              <div class="mx-auto col-md-6">
+			                   <div class="alert alert-success"> ${logout }</div>
+			              </div>  
+			         </div> 
+			     </c:if>
 			      
 			    <div class="row">
 			      <div class="mx-auto col-md-6">

@@ -29,7 +29,7 @@
 		<intercept-url pattern="/**" access="permitAll" /> <!-- /*= /abc SI GATA, /** = /abc/pgf/dsd/dada/ si asa mai departe -->
 		
 		<form-login login-page="/login" /> <!-- in page controller va fi requestMapping login -->           <!--    access="hasRole('USER')"  " authorities="ROLE_USER,  ROLE_ADMIN-->
-		<logout />   
+		<!-- <logout />    -->
 		<access-denied-handler error-page="/access-denied"/>           
 	   <!--  <csrf disabled="true"/> not recommanded -->
 	</http>
