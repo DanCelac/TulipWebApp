@@ -60,10 +60,10 @@
                       <ul class="dropdown-menu">
                         <security:authorize access="hasAuthority('USER')">
 						      <li >
-						          <a href="${contextRoot}/cart">
+						          <a href="${contextRoot}/cart/show">
 						                 <span class="glyphicon glyphicon-shopping-cart"></span>
 						                 <span class="badge">${userModel.cart.cartLines}</span>
-						                 - Lei  ${userModel.cart.grandTotal}
+						                   ${userModel.cart.grandTotal} - Lei
 						          </a>
 						      </li>
 						      <li  class="dropdown-divider" role="separator"></li> <!-- separatorul -->
