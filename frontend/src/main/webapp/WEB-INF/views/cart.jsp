@@ -47,6 +47,7 @@
 								<button type="button" name="refreshCart" value="${cartLine.id}" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-refresh"></span></button>
 								<button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>								
 							</td>
+			
 						</tr>
                         
                         
@@ -86,7 +87,6 @@
   
   
   
-
 
 </c:choose>
 		

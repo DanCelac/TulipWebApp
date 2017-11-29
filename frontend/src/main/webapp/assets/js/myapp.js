@@ -381,14 +381,16 @@ if ($adminProductsTable.length) {
 			    	message: 'Product Count should be minimum 1 and maximum 5!'
 				});
 			}
+			
 			else {
 				// use the window.location.href property to send the request to the server
 				var updateUrl = window.contextRoot + '/cart/' + cartLineId + '/update?count=' + currentCount;
-				//forward it to the controller, pentru a face update si la url daca se schimba count
+				//forward it to the controller, pentru a face update si la url daca se schimba count la 
 				window.location.href = updateUrl;
 			}
 		}
 	});	
+	
 	
 	
 	
