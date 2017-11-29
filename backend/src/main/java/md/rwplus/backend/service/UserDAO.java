@@ -20,7 +20,7 @@ public interface UserDAO {
 	//	List<Address> listShippingAddresses(int userId);
 		
 		//update a cart
-		boolean updateCart(Cart cart);
+		
 		// adding and updating a new address
 		//Address getAddress(int addressId);
 		//boolean addAddress(Address address);
