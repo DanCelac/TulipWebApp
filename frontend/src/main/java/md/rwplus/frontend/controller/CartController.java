@@ -35,13 +35,12 @@ public class CartController {
 				case "error":
 					mv.addObject("message", "Something went wrong");					
 				//	cartService.validateCartLine();
-					break;
-				
-				/*case "added":
+					break; 
+				case "added":
 					mv.addObject("message", "Product has been successfully added inside cart!");					
 				//	cartService.validateCartLine();
 					break;
-				case "unavailable":
+			/*	case "unavailable":
 					mv.addObject("message", "Product quantity is not available!");					
 					break;
 				
@@ -75,12 +74,12 @@ public class CartController {
 		return "redirect:/cart/show?"+response;		
 	}
 	
-	/*@RequestMapping("/add/{productId}/product")
+	@RequestMapping("/add/{productId}/product")
 	public String addCartLine(@PathVariable int productId) {
 		String response = cartService.addCartLine(productId);
 		return "redirect:/cart/show?"+response;
 	}
-	*/
+	
 	@RequestMapping("/{cartLineId}/delete")
 	public String updateCart(@PathVariable int cartLineId) {
 		String response = cartService.deleteCartLine(cartLineId);

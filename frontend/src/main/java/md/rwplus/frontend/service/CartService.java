@@ -80,36 +80,40 @@ public class CartService {
  
 
 
-	/*public String addCartLine(int productId) {		
-		Cart cart = this.getCart();
+	public String addCartLine(int productId) {		
+		
 		String response = null;
+	
+		Cart cart = this.getCart();
 		CartLine cartLine = cartLineDAO.getByCartAndProduct(cart.getId(), productId);
 		if(cartLine==null) {
-			// add a new cartLine if a new product is getting added
+			// add a new cartLine 
 			cartLine = new CartLine();
+			//fecth the product  
 			Product product = productDAO.get(productId);
 			// transfer the product details to cartLine
 			cartLine.setCartId(cart.getId());
 			cartLine.setProduct(product);
-			cartLine.setProductCount(1);
 			cartLine.setBuyingPrice(product.getUnitPrice());
+			cartLine.setProductCount(1);
 			cartLine.setTotal(product.getUnitPrice());
+			cartLine.setAvailable(true);
 			
 			// insert a new cartLine
 			cartLineDAO.add(cartLine);
 			
 			// update the cart
-			cart.setGrandTotal(cart.getGrandTotal() + cartLine.getTotal());
 			cart.setCartLines(cart.getCartLines() + 1);
+			cart.setGrandTotal(cart.getGrandTotal() + cartLine.getTotal());
 			cartLineDAO.updateCart(cart);
 
 			response = "result=added";						
-		} 
+		} 	
 		else {
 			// check if the cartLine has been already reached to maximum count
-			if(cartLine.getProductCount() < 3) {
+			if(cartLine.getProductCount() < 5) {
 				// call the manageCartLine method to increase the count
-				response = this.manageCartLine(cartLine.getId(), cartLine.getProductCount() + 1);				
+				response = this.updateCartLine(cartLine.getId(), cartLine.getProductCount() + 1);				
 			}			
 			else {				
 				response = "result=maximum";				
@@ -117,7 +121,7 @@ public class CartService {
 		}		
 		return response;
 	}
-	*/
+	
 	
 	
 

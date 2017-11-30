@@ -73,7 +73,7 @@
 							<td class="text-center"><strong>Total ${userModel.cart.grandTotal} Lei</strong></td>
 						</tr> --%>
 						<tr>
-							<td><a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span> Continue Shopping</a></td>
+							<td><a href="${contextRoot}/show/all/products" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span> Continue Shopping</a></td>
 							<td colspan="2" class="hidden-xs"></td>
 							<td class="hidden-xs text-center"><strong>Total ${userModel.cart.grandTotal} Lei</strong></td>
 							<td><a href="#" class="btn btn-success btn-block">Checkout <span class="glyphicon glyphicon-chevron-right"></span></a></td>
