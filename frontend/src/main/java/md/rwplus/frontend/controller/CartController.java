@@ -29,10 +29,14 @@ public class CartController {
 					mv.addObject("message", "CartLine has been updated successfully!");					
 					//cartService.validateCartLine();
 					break;
+				case "deleted":
+					mv.addObject("message", "CartLine has been removed successfully !");
+					break;
 				case "error":
 					mv.addObject("message", "Something went wrong");					
 				//	cartService.validateCartLine();
 					break;
+				
 				/*case "added":
 					mv.addObject("message", "Product has been successfully added inside cart!");					
 				//	cartService.validateCartLine();
@@ -46,14 +50,12 @@ public class CartController {
 					break;
 				case "maximum":
 					mv.addObject("message", "Maximum limit for the item has been reached!");
-					break;
-				case "deleted":
-					mv.addObject("message", "CartLine has been successfully removed!");
 					break;*/
-
+				
+    
 			}
 		}
-		/*else {
+	    /* else {
 			String response = cartService.validateCartLine();
 			if(response.equals("result=modified")) {
 				mv.addObject("message", "One or more items inside cart has been modified!");
@@ -79,11 +81,11 @@ public class CartController {
 		return "redirect:/cart/show?"+response;
 	}
 	*/
-	/*@RequestMapping("/{cartLineId}/remove")
-	public String removeCartLine(@PathVariable int cartLineId) {
-		String response = cartService.removeCartLine(cartLineId);
+	@RequestMapping("/{cartLineId}/delete")
+	public String updateCart(@PathVariable int cartLineId) {
+		String response = cartService.deleteCartLine(cartLineId);
 		return "redirect:/cart/show?"+response;
-	}*/
+	}
 	
 	/* after validating it redirect to checkout
 	 * if result received is success proceed to checkout 

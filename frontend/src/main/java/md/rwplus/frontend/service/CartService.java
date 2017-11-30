@@ -122,21 +122,27 @@ public class CartService {
 	
 
 
-	/*public String removeCartLine(int cartLineId) {
-		
+	public String deleteCartLine(int cartLineId) {
+		//fetch the cart line
 		CartLine cartLine = cartLineDAO.get(cartLineId);
-		// deduct the cart
-		// update the cart
-		Cart cart = this.getCart();	
-		cart.setGrandTotal(cart.getGrandTotal() - cartLine.getTotal());
-		cart.setCartLines(cart.getCartLines() - 1);		
-		cartLineDAO.updateCart(cart);
+		if(cartLine==null){
+		   return "result=error";	
+		}else{
+			
+			// deduct the cart
+			// update the cart
+			Cart cart = this.getCart();	
+			cart.setGrandTotal(cart.getGrandTotal() - cartLine.getTotal());
+			cart.setCartLines(cart.getCartLines() - 1);		
+			cartLineDAO.updateCart(cart);
+			
+			// remove the cartLine
+			cartLineDAO.delete(cartLine);
+					
+			return "result=deleted";
+		}
 		
-		// remove the cartLine
-		cartLineDAO.remove(cartLine);
-				
-		return "result=deleted";
-	}*/
+	}
 
 
 	/*public String validateCartLine() {
