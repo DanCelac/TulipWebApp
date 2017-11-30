@@ -1,5 +1,7 @@
 package md.rwplus.frontend.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +15,7 @@ import md.rwplus.frontend.service.CartService;
 @RequestMapping("/cart")
 public class CartController {
 
-	//private final static Logger logger = LoggerFactory.getLogger(CartController.class);
+	private final static Logger logger = LoggerFactory.getLogger(CartController.class);
 	
 	@Autowired
 	private CartService cartService;
@@ -40,26 +42,26 @@ public class CartController {
 					mv.addObject("message", "Product has been successfully added inside cart!");					
 				//	cartService.validateCartLine();
 					break;
-			/*	case "unavailable":
+				/*case "unavailable":
 					mv.addObject("message", "Product quantity is not available!");					
-					break;
+					break;*/
 				
 				case "modified":
 					mv.addObject("message", "One or more items inside cart has been modified!");
 					break;
 				case "maximum":
 					mv.addObject("message", "Maximum limit for the item has been reached!");
-					break;*/
+					break;
 				
     
 			}
 		}
-	    /* else {
+	     else {
 			String response = cartService.validateCartLine();
 			if(response.equals("result=modified")) {
 				mv.addObject("message", "One or more items inside cart has been modified!");
 			}
-		}*/
+		}
 		mv.addObject("title", "User Cart");
 		mv.addObject("userClickShowCart", true);
 		mv.addObject("cartLines", cartService.getCartLines());
@@ -90,14 +92,15 @@ public class CartController {
 	 * if result received is success proceed to checkout 
 	 * else display the message to the user about the changes in cart page
 	 * */	
-	/*@RequestMapping("/validate")
+	@RequestMapping("/validate")
 	public String validateCart() {	
 		String response = cartService.validateCartLine();
 		if(!response.equals("result=success")) {
 			return "redirect:/cart/show?"+response;
-		
-		else {
-			return "redirect:/cart/checkout";
 		}
-	}	*/
+			else {
+				return "redirect:/cart/checkout";
+			}
+	}	
 }
+	
