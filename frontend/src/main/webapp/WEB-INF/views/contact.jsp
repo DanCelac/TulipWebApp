@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 
-		<h1>Google Maps Tulip</h1>
+		<h2>Google Maps Tulip</h2>
 		<hr />
 
 		<!DOCTYPE html>
@@ -56,7 +56,7 @@
          </div>  -->
 
 	<ul class="list-group">
-		<li class="list-group-item"><h5>Contacts:</h5></li>
+		<li class="list-group-item list-group-item-info"><h5>Contacts:</h5></li>
 		<li class="list-group-item"><h5> Mobile Phone: <h6>068272361</h6></h5> </li>
 		<li class="list-group-item"> <h5> Street:</h5><h6>str.Constantin Negruzii 103</h6></li>
 		<li class="list-group-item"><h5>Email:</h5><h6>cafetulip@gmail.com</h6></li>

@@ -53,7 +53,7 @@
 							src="${pageContext.request.contextPath}/assets/image/PRDPQR123WGTX.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
-								<a href="#">Salad Gurman</a>
+								<a href="${contextRoot}/show/3/product">Salad Gurman</a>
 							</h4>
 							<h5>35 Lei</h5>
 							<p class="card-text">(ham, cheese, corn, bell pepper, olives, green onion, sauce)</p>
@@ -71,7 +71,7 @@
 							src="${pageContext.request.contextPath}/assets/image/PRDABC123DEFX.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
-								<a href="#">Pizza Atomic</a>
+								<a href="${contextRoot}/show/2/product">Pizza Atomic</a>
 							</h4>
 							<h5>58 Lei</h5>
 							<p class="card-text">(double cheese, salami, bacon, ham, mushroom, sauce)</p>
@@ -89,7 +89,7 @@
 							src="${pageContext.request.contextPath}/assets/image/PRDDEF123DEFX.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
-								<a href="#">Meat</a>
+								<a href="${contextRoot}/show/4/product">Meat</a>
 							</h4>
 							<h5>50 Lei</h5>
 							<p class="card-text">Grilled pork steak with vegetables</p>
@@ -107,7 +107,7 @@
 							src="${pageContext.request.contextPath}/assets/image/PRDABCXYZDEFX.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
-								<a href="#">Garniture</a>
+								<a href="${contextRoot}/show/5/product">Garniture</a>
 							</h4>
 							<h5>20 Lei</h5>
 							<p class="card-text">Risotto with vegetables</p>
@@ -125,7 +125,7 @@
 							src="${pageContext.request.contextPath}/assets/image/PRDABCXYZDHFD.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
-								<a href="#">Pastes</a>
+								<a href="${contextRoot}/show/6/product">Pastes</a>
 							</h4>
 							<h5>35 Lei</h5>
 							<p class="card-text">Spaghetti bolognese</p>
@@ -143,7 +143,7 @@
 							src="${pageContext.request.contextPath}/assets/image/PRDMNO123PQRX.jpg" alt=""></a>
 						<div class="card-body">
 							<h4 class="card-title">
-								<a href="#">Fish</a>
+								<a href="${contextRoot}/show/7/product">Fish</a>
 							</h4>
 							<h5>50 Lei</h5>
 							<p class="card-text">Salmon steak</p>
