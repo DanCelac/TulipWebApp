@@ -35,12 +35,12 @@ public class ManagementController {
 	@Autowired
 	private ProductDAO productDAO;
 		
-	
 	@Autowired
 	private CategoryDAO categoryDAO;	
 	
 	private static final Logger logger = LoggerFactory.getLogger(ManagementController.class); //just for developer purpose
-
+     
+	//to send the product or category to database
 	@RequestMapping(value="/products", method = RequestMethod.GET)
 	public ModelAndView showManageProducts(@RequestParam(name="operation",required=false)String operation) {	
 		/*@RequestParam(name="success",required=false)String success*/
@@ -125,6 +125,7 @@ public class ManagementController {
 	}
 	
 	
+	//to redirect at form edit in url
 	@RequestMapping(value ="/{id}/product", method = RequestMethod.GET)
 	public ModelAndView showEditProduct (@PathVariable int id) {		
 
@@ -135,51 +136,12 @@ public class ManagementController {
 		Product nProduct = productDAO.get(id);
 		//set the product fetch from the database
 		mv.addObject("product", nProduct);
-
 			
 		return mv;
 		
 	}
 	
-	
-	/*@RequestMapping(value = "/products", method=RequestMethod.POST)
-	public String managePostProduct(@Valid @ModelAttribute("product") Product mProduct, 
-			BindingResult results, Model model, HttpServletRequest request) {
-		
-		// mandatory file upload check
-		if(mProduct.getId() == 0) {
-			new ProductValidator().validate(mProduct, results);
-		}
-		else {
-			// edit check only when the file has been selected
-			if(!mProduct.getFile().getOriginalFilename().equals("")) {
-				new ProductValidator().validate(mProduct, results);
-			}			
-		}
-		
-		if(results.hasErrors()) {
-			model.addAttribute("message", "Validation fails for adding the product!");
-			model.addAttribute("userClickManageProduct",true);
-			return "page";
-		}			
-
-		
-		if(mProduct.getId() == 0 ) {
-			productDAO.add(mProduct);
-		}
-		else {
-			productDAO.update(mProduct);
-		}
-	
-		 //upload the file
-		 if(!mProduct.getFile().getOriginalFilename().equals("") ){
-			FileUtil.uploadFile(request, mProduct.getFile(), mProduct.getCode()); 
-		 }
-		
-		return "redirect:/manage/product?success=product";
-	}
- */
-	
+	//activation/deactivation product 	
 	@RequestMapping(value = "/product/{id}/activation", method=RequestMethod.POST)
 	@ResponseBody
 	public String handleProductActivation(@PathVariable int id) {		
@@ -196,15 +158,59 @@ public class ManagementController {
 			
 
 	
-	//to handle category submission
+	//to handle category submission add category
 	@RequestMapping(value = "/category", method=RequestMethod.POST)
 	public String handleCategorySubmission(@ModelAttribute Category category) {					
 		//add the new category
 		categoryDAO.add(category);		
 		return "redirect:/manage/products?operation=category";
 	}
+	
+    //to handle category submission delete category
+		@RequestMapping(value = "/category/delete", method=RequestMethod.POST)
+		public String handleCategoryDelete(@ModelAttribute Category category) {					
+			//delete category
+			categoryDAO.delete(category);		
+			return "redirect:/manage/category?operation=category";
+		}
+	
+	///////////////////////////category
+	
+	@RequestMapping(value ="/{id}/category", method = RequestMethod.GET)
+	public ModelAndView showEditCategory (@PathVariable int id) {		
+
+		ModelAndView mv = new ModelAndView("page");	
+		mv.addObject("userClickManageProducts",true);
+		mv.addObject("title","Product Management");		
+		//fetch the product from the database
+		Category nCategory = categoryDAO.get(id);
+		//set the product fetch from the database
+		mv.addObject("category", nCategory);
+			
+		return mv;
+		
+	}
+	
+	
+	@RequestMapping(value = "/category/{id}/activation", method=RequestMethod.POST)
+	@ResponseBody
+	public String handleCategoryActivation(@PathVariable int id) {		
+		//is going to fetch the product from the database
+		Category category = categoryDAO.get(id);
+		boolean isActive = category.isActive();
+		// activating and deactivating based on the value of active field
+		category.setActive(!isActive); 
+		//updating the product
+		categoryDAO.update(category);		
+		return (isActive)? "Category is disabled ! with Id = " + category.getId() : 
+			               "Category is Activated Successfully with Id = " + category.getId();
+	}
 			
 	
+	
+	
+			
+
 	//returning categories for all the request mapping
 	@ModelAttribute("categories") 
 	public List<Category> getCategories() {

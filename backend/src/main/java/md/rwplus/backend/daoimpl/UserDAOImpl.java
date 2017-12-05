@@ -68,7 +68,7 @@ public class UserDAOImpl implements UserDAO {
 							
 	}
 	
-	/*@Override
+	@Override
 	public boolean updateAddress(Address address) {
 		try {			
 			sessionFactory.getCurrentSession().update(address);			
@@ -77,7 +77,7 @@ public class UserDAOImpl implements UserDAO {
 		catch(Exception ex) {
 			return false;
 		}
-	}	*/
+	}	
 	
 
 	@Override
@@ -109,7 +109,7 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
-/*	@Override
+	@Override
 	public User get(int id) {
 		try {			
 			return sessionFactory.getCurrentSession().get(User.class, id);			
@@ -119,8 +119,8 @@ public class UserDAOImpl implements UserDAO {
 			return null;
 		}
 	}
-*/
-/*	@Override
+
+	@Override
 	public Address getAddress(int addressId) {
 		try {			
 			return sessionFactory.getCurrentSession().get(Address.class, addressId);			
@@ -129,6 +129,38 @@ public class UserDAOImpl implements UserDAO {
 			System.out.println(ex.getMessage());
 			return null;
 		}
-	}*/
+	}
+
+
+
+	@Override
+	public Address getBillingAddress(int userId) {
+		String selectQuery = "FROM Address WHERE userId = :userId AND billing = :isBilling";
+		try{
+		return sessionFactory
+				.getCurrentSession()
+					.createQuery(selectQuery,Address.class)
+						.setParameter("userId", userId)
+						.setParameter("isBilling", true)
+						.getSingleResult();
+		}
+		catch(Exception ex) {
+			return null;
+		}
+	}
+
+
+
+	@Override
+	public List<Address> listShippingAddresses(int userId) {
+		String selectQuery = "FROM Address WHERE userId = :userId AND shipping = :isShipping ORDER BY id DESC";
+		return sessionFactory
+				.getCurrentSession()
+					.createQuery(selectQuery,Address.class)
+						.setParameter("userId", userId)
+						.setParameter("isShipping", true)
+							.getResultList();
+		
+	}
 
 }

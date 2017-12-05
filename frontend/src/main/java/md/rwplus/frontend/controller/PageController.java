@@ -20,6 +20,7 @@ import md.rwplus.backend.model.Category;
 import md.rwplus.backend.model.Product;
 import md.rwplus.backend.service.CategoryDAO;
 import md.rwplus.backend.service.ProductDAO;
+import md.rwplus.frontend.exception.CategoryNotFoundException;
 import md.rwplus.frontend.exception.ProductNotFoundException;
 
 @Controller
@@ -67,6 +68,7 @@ public class PageController {
 		return mv;
 	}
 
+	
 	// * Method to load all the products and based on category
 
 	@RequestMapping(value = { "/show/all/products" })
@@ -81,6 +83,8 @@ public class PageController {
 		return mv;
 	}
 
+	
+	//manage the products 
 	@RequestMapping(value = "/show/category/{id}/products")
 	public ModelAndView showCategoryProducts(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView("page");
@@ -99,11 +103,13 @@ public class PageController {
 		mv.addObject("userClickCategoryProducts", true);
 		return mv;
 	}
+	
+
 
 	/*
-	 * Viewing a single product
+	 * Viewing a single product, and handle exception
 	 */
-
+   
 	@RequestMapping(value = "/show/{id}/product")
 	public ModelAndView showSingleProduct(@PathVariable int id)   throws ProductNotFoundException	{			
 
@@ -124,8 +130,26 @@ public class PageController {
 		mv.addObject("userClickShowProduct", true);
 
 		return mv;
-
 	}
+	
+	/*
+	 * Viewing category, and handle exception
+	 */
+   
+/*	@RequestMapping(value = "/show/{id}/category")
+	public ModelAndView showCategory (@PathVariable int id) throws CategoryNotFoundException	{			
+
+		ModelAndView mv = new ModelAndView("page");
+		Category category = categoryDAO.get(id);
+		if(category == null) throw new CategoryNotFoundException();
+		// ------------------------------------------------------
+		mv.addObject("title", category.getName());
+		mv.addObject("category", category);
+		mv.addObject("userClickShowProduct", true);
+
+		return mv;
+	}*/
+	
 	
 	@RequestMapping(value = "/register")
 	public ModelAndView register() {
@@ -133,6 +157,7 @@ public class PageController {
 		mv.addObject("title", "About Us");
 		return mv;
 	}
+	
 
 	/*
 	 * Login

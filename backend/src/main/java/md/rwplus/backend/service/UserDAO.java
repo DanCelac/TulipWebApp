@@ -8,25 +8,31 @@ import md.rwplus.backend.model.User;
 
 public interface UserDAO {
 	
-	// user related operation
+	    //get the user by email or id
 	    User getByEmail(String email);
-	//	User get(int id);
+		User get(int id);
+		
         //add an user
 		boolean addUser(User user);
+					
 		// add an address
 		boolean addAddress(Address address);
-		//alternative
-		//Address getBillingAddress(int userId);
-	//	List<Address> listShippingAddresses(int userId);
 		
-		//update a cart
+		//get the address by Id
+		Address getAddress(int addressId);
+	
+		//update the address
+		boolean updateAddress(Address address);
 		
-		// adding and updating a new address
-		//Address getAddress(int addressId);
-		//boolean addAddress(Address address);
-		
-		//boolean updateAddress(Address address);
+		//get Billing address from User
 	    Address getBillingAddress(User user);
+	    
+	    //List of address from user
 		List<Address> listShippingAddresses(User user);
+		
+		
+	      //by userId
+		Address getBillingAddress(int userId);
+		List<Address> listShippingAddresses(int userId);
        
 }

@@ -47,7 +47,8 @@
 	                                         <!-- dataSource din hibernateconfig file metoda getDataSource la bean ii vom da name dataSource -->
 	         <jdbc-user-service  data-source-ref="dataSource" 
 	                             users-by-username-query="select email, password, enabled from user_detail where email = ?"
-	                             authorities-by-username-query="select email, role from user_detail where email = ?" />   
+	                             authorities-by-username-query="select email, role from user_detail where email = ?" 
+	          />   
 	            
 			
 		</authentication-provider>

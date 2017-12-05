@@ -132,7 +132,7 @@ public class ProductDAOImpl implements ProductDAO {
 								.getResultList();					
 	}
 
-/*	@Override
+	@Override
 	public List<Product> getProductsByParam(String param, int count) {
 		
 		String query = "FROM Product WHERE active = true ORDER BY " + param + " DESC";
@@ -145,6 +145,6 @@ public class ProductDAOImpl implements ProductDAO {
 					.getResultList();
 					
 		
-	}*/
+	}
 
 }

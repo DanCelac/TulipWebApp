@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import md.rwplus.backend.model.Cart;
 import md.rwplus.backend.model.CartLine;
+import md.rwplus.backend.model.OrderDetail;
 import md.rwplus.backend.service.CartLineDAO;
 
 @Repository("cartLineDAO")
@@ -113,7 +114,7 @@ public class CartLineDAOImpl implements CartLineDAO {
 		
 	}
 
-	/*@Override
+	@Override
 	public boolean addOrderDetail(OrderDetail orderDetail) {
 		try {			
 			sessionFactory.getCurrentSession().persist(orderDetail);			
@@ -122,6 +123,6 @@ public class CartLineDAOImpl implements CartLineDAO {
 		catch(Exception ex) {
 			return false;
 		}
-	}*/
+	}
 		
 }

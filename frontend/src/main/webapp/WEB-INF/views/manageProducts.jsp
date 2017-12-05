@@ -25,7 +25,7 @@
 
 
 		<div class="mx-auto col-md-8">
-			<!-- boot 3  col-md-offset-2  boot 4 = mx-auto -->
+			<!-- boot 3  col-md-offset-2  boot 4 = mx-auto, for display in the middle of page -->
 
 			<div class="card text-center text-white bg-secondary mb-3">
 				<!--  bootstrap 3= panel, boot 4 = card -->
@@ -133,17 +133,13 @@
 	<!--End row  -->
 
 
-
+ <!-- For available product management -->
 	<div class="row">
-
-
 		<div class='col-lg-12'>
 			<h3>Available Products</h3>
 			<hr />
-
-
 		</div>
-
+ 
 		<div class='col-lg-12'>
 			<div style="overflow: auto">
 
@@ -176,10 +172,50 @@
 				</table>
 			</div>
 		</div>
-
-
 	</div>
-	<!-- end Row -->
+	<!-- end Row for available products-->
+	
+	
+	<hr/>
+	 <!-- For categoty name  management -->
+	 	<div class="row">
+		<div class='col-lg-12'>
+			<h3>Management Category</h3>
+			<hr />
+		</div>
+ 
+		<div class='col-lg-12'>
+			<div style="overflow: auto">
+
+				<!-- Products table for Admin -->
+				<table id="adminCategoryTable"
+					class="table table-striped table-bordered">
+
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Activate</th>
+							<!-- <th>Edit</th> -->
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Activate</th>
+							<!-- <th>Edit</th> -->
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+	 <!-- end row for category -->
+	
+	
 
 
     <div class="modal fade" id="myCategoryModal" role="dialog" tabindex="-1">

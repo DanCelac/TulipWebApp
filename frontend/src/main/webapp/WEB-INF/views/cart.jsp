@@ -76,7 +76,25 @@
 							<td><a href="${contextRoot}/show/all/products" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span> Continue Shopping</a></td>
 							<td colspan="2" class="hidden-xs"></td>
 							<td class="hidden-xs text-center"><strong>Total ${userModel.cart.grandTotal} Lei</strong></td>
-							<td><a href="#" class="btn btn-success btn-block">Checkout <span class="glyphicon glyphicon-chevron-right"></span></a></td>
+							
+						   
+						  <c:choose>
+							<c:when test="${availableCount != 0}">
+								<td><a href="${contextRoot}/cart/validate" class="btn btn-success btn-block">Checkout <span class="glyphicon glyphicon-chevron-right"></span></a></td>
+							</c:when>							
+							<c:otherwise>
+								<td>
+								    <a href="javascript:void(0)" class="btn btn-success btn-block disabled">Checkout <span class="glyphicon glyphicon-chevron-right"></span></a>
+								</td>
+							</c:otherwise>
+						</c:choose>		
+							
+							
+							
+							<%-- <td><a href="${contextRoot}/checkout" class="btn btn-success btn-block">Checkout <span class="glyphicon glyphicon-chevron-right"></span></a></td> --%>
+					
+					
+					
 						</tr>
 					</tfoot>
 				</table>

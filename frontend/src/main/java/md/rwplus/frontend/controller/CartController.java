@@ -23,6 +23,8 @@ public class CartController {
 	@RequestMapping("/show")
 	public ModelAndView showCart(@RequestParam(name = "result", required = false) String result) {	
 		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "User Cart");
+		mv.addObject("userClickShowCart", true);
 		
 		
 		if(result!=null) {
@@ -62,8 +64,7 @@ public class CartController {
 				mv.addObject("message", "One or more items inside cart has been modified!");
 			}
 		}
-		mv.addObject("title", "User Cart");
-		mv.addObject("userClickShowCart", true);
+		
 		mv.addObject("cartLines", cartService.getCartLines());
 		return mv;
 		

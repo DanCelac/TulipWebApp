@@ -4,6 +4,7 @@ import java.util.List;
 
 import md.rwplus.backend.model.Cart;
 import md.rwplus.backend.model.CartLine;
+import md.rwplus.backend.model.OrderDetail;
 
 public interface CartLineDAO {
 
@@ -25,5 +26,5 @@ public interface CartLineDAO {
 	public List<CartLine> listAvailable(int cartId);
 	
 	// adding order details
-	//boolean addOrderDetail(OrderDetail orderDetail);
+	 boolean addOrderDetail(OrderDetail orderDetail);
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import md.rwplus.backend.model.Category;
+import md.rwplus.backend.model.Product;
 import md.rwplus.backend.service.CategoryDAO;
 
 @Repository("categoryDAO")  // chemam metodele din interfata folosind aceasta notatie
@@ -84,20 +85,29 @@ public class CategoryDAOImpl implements CategoryDAO {
 	// @Qualifier("sessionFactory") // The @Qualifier annotation along with @Autowired can be used to remove the confusion by specifiying which exact bean will be wired.
 	@Autowired
 	private SessionFactory  sessionFactory;
-
+    
+	/*
+	 * LIST ACTIVE CATEGORY
+	 * */
+	@Override
+	public List<Category> listActiveCategory() {
+		String selectActiveCategory = "FROM Category WHERE active = :active";
+		return sessionFactory
+				.getCurrentSession()
+					.createQuery(selectActiveCategory, Category.class)
+						.setParameter("active", true)
+							.getResultList();
+	}
+	
+	/*
+	 * LIST
+	 * */
 	@Override
 	public List<Category> list() {
-	     //Deja e Hibernate unde Category este marcata ca entity in Category.java 
-		//
-		String selectActiveCategory = "FROM Category WHERE active = :active";
-		 
-		//Query de la hibernate care am implementato
-		//facem acest query sa vedem care este :activ
-		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
-		
-		query.setParameter("active", true);
-		
-		return query.getResultList();
+		return sessionFactory
+				.getCurrentSession()
+					.createQuery("FROM Category" , Category.class)
+						.getResultList();
 	}
 
 	
@@ -106,11 +116,14 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public Category get(int id) {
 
-		return sessionFactory.getCurrentSession().get(Category.class, Integer.valueOf(id));
+		return sessionFactory
+				.getCurrentSession()
+				.get(Category.class, Integer.valueOf(id));
 	}
 
 	@Override
-
+ 
+	// add the category to the database table
 	public boolean add(Category category) {
 		try {
 			// add the category to the database table
@@ -124,8 +137,9 @@ public class CategoryDAOImpl implements CategoryDAO {
 	}
 
 	
-	 // updating a single category
-	 
+	/*
+	 * Updating a single category
+	 */
 	@Override
 	public boolean update(Category category) {
 		try {
@@ -139,18 +153,22 @@ public class CategoryDAOImpl implements CategoryDAO {
 	}
 
 	
-	 // delete a single category
+	 // delete a single category  
+	
 	 
 	@Override
 	public boolean delete(Category category) {
 		category.setActive(false);
 		try {
 			// delete the category to the database table
+			
 			sessionFactory.getCurrentSession().update(category);
 			return true;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
+			
 		}
 	}
 
