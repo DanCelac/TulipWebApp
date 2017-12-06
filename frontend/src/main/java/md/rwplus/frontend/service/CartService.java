@@ -111,7 +111,7 @@ public class CartService {
 		} 	
 		else {
 			// check if the cartLine has been already reached to maximum count
-			if(cartLine.getProductCount() < 5) {
+			if(cartLine.getProductCount() < 100) {
 				// call the manageCartLine method to increase the count
 				response = this.updateCartLine(cartLine.getId(), cartLine.getProductCount() + 1);				
 			}			

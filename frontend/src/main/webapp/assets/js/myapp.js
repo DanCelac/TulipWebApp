@@ -473,7 +473,7 @@ if ($adminCategoryTable.length) {
 		//work only when  the count has changed, daca element este din numarul de produse este unu nu va lucra, daca va fi 5 produse se va reseta cu 1
 		if(currentCount !== originalCount) {	 
 			// check if the quantity is within the specified range
-			if((currentCount < 1) || (currentCount > 5)) {
+			if((currentCount < 1) || (currentCount > 100)) {
 				
 				// console.log("current count: " + currentCount); //only for developer purpose, to see in console if works
 				// console.log("original count: " + originalCount);
@@ -484,7 +484,7 @@ if ($adminCategoryTable.length) {
 				bootbox.alert({   //bootbox jquery care l-am scos din internet, pentru a aparea mesaje de alerta daca ceva nu merge ok
 					size: 'medium', 
 			    	title: 'Error',
-			    	message: 'Product Count should be minimum 1 and maximum 5!'
+			    	message: 'Product Count should be minimum 1 and maximum 100!'
 				});
 			}
 			
@@ -498,13 +498,16 @@ if ($adminCategoryTable.length) {
 	});	
 	
 	
+	//----------------
+	
+	
 	
 	
 	
 	
 
 	//----------------------
-}); //end function
+}); //end function principale
 
 
 

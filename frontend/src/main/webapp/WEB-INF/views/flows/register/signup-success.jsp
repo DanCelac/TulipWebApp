@@ -9,9 +9,10 @@
 
 		<div class="mx-auto col-sm-4">
 			<div class="text-center">
-				<h1>Welcome!</h1>
+				<h1>Welcome!</h1> 
 				<h3>TulipCafe.md</h3>
 				<h6>You can use your email address as username to login!</h6>
+				
 				<div>
 					<a href="${contextRoot}/login" class="btn btn-lg btn-success">Login Here</a>
 				</div>

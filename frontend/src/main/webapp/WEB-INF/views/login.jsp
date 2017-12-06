@@ -103,24 +103,29 @@
 								<form action="${contextRoot}/login" method="POST"
 									class="form-horizontal" id="loginForm">
 									
+									
+									
 									<div class="form-group">
 										<label for="username" class="col-md-4 control-label">Email: </label>
-										<div class="col-md-8">
+										<div class="col-md-8 mx-auto ">
 											<input type="text" name="username" id="username"
-												       class="form-control" />
+												       class="form-control" />	       
 										</div>
 									</div>
 									
-									<div class="form-group">
-										<label for="password" class="col-md-4 control-label">Password: </label>
-										<div class="col-md-8">
+									
+									
+									<div class="form-group ">
+										<label for="password" class="col-md-4  control-label">Password: </label>
+										<div class="col-md-8 mx-auto">
 											<input type="password" name="password" id="password"
-												class="form-control" />
+												class="form-control "  />
 										</div>
 									</div>
 									
+									
 									<div class="form-group">
-										<div class="col-md-offset-4 col-md-8">
+										<div class=" mx-auto col-md-8">
 											
 											<input type="submit" value="Login" class="btn btn-primary" />
 											
@@ -129,6 +134,7 @@
 										</div>
 									</div>
 								</form>
+								
 								
 							</div> <!-- body -->
 							<div class="card-footer">
@@ -173,7 +179,7 @@
 
 		<!-- End div wrapper -->
 	</div>
-
+                            
 </body>
 
 </html>
