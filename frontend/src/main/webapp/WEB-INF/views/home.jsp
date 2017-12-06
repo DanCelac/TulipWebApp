@@ -1,8 +1,12 @@
+<!-- Angular Script -->
+<script src="${js}/angular.js"></script>
 
+<!-- Product Controller Script -->
+<script src="${js}/productsController.js"></script>
 
-<div class="container">
+<div class="container" ng-app="TulipApp" ng-controller="ProductController as pCtrl">
 
-	<div class="row">
+	<div class="row" ng-init="pCtrl.fetchProducts()">  <!-- ng-init="pCtrl.fetchProducts()" -->
 
 		<div class="col-lg-3">
 			<!-- Sidebar -->
@@ -44,10 +48,20 @@
 					class="sr-only">Next</span>
 				</a>
 			</div>
+               
+               <div class="row">
+                	<div class="col-md-12">
+                		<h3> Our Most Viewed Products</h3>
+                		<hr/>
+                	</div>
+                </div>
 
-			<div class="row">
 
-				<div class="col-lg-4 col-md-6 mb-4">
+
+
+			<div class="row is-table-row">
+
+				<%-- <div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"
 							src="${pageContext.request.contextPath}/assets/image/PRDPQR123WGTX.jpg" alt=""></a>
@@ -63,9 +77,8 @@
 								&#9734;</small>
 						</div>
 					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6 mb-4">
+				</div> --%>
+				<%-- <div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"
 							src="${pageContext.request.contextPath}/assets/image/PRDABC123DEFX.jpg" alt=""></a>
@@ -99,9 +112,62 @@
 								&#9734;</small>
 						</div>
 					</div>
+				</div> --%>
+				
+				<div class="col-lg-4 col-md-6 mb-4" ng-repeat="product in pCtrl.mvProducts">
+					<div class="card h-100">
+						<a href="#"> <img class="card-img-top" style=" height: 150px; "
+							ng-src="${pageContext.request.contextPath}/assets/image/{{product.code}}.jpg" alt=""></a>
+						<div class="card-body">
+							<h4 class="card-title">
+								<a ng-href="${contextRoot}/show/{{product.id}}/product">{{product.name}}</a>
+							</h4>
+							<h5>{{product.unitPrice}} Lei</h5>
+							<p class="card-text">{{product.description}}</p>
+						</div>
+						<div class="card-footer">
+							<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
+								&#9734;</small>
+						</div>
+					</div>
 				</div>
+				
 
-				<div class="col-lg-4 col-md-6 mb-4">
+
+				
+              </div>
+                   <div class="row">
+                	<div class="col-md-12">
+                		<h3>Our Most Purchased Products</h3>
+                		<hr/>
+                	</div>
+                 </div>
+                 
+                <div class="row is-table-row">
+                
+                <div class="col-lg-4 col-md-6 mb-4" ng-repeat="product in pCtrl.mpProducts">
+					<div class="card h-100">
+						<a href="#"> <img class="card-img-top" style=" height: 150px; "
+							ng-src="${pageContext.request.contextPath}/assets/image/{{product.code}}.jpg" alt=""></a>
+						<div class="card-body">
+							<h4 class="card-title">
+								<a ng-href="${contextRoot}/show/{{product.id}}/product">{{product.name}}</a>
+							</h4>
+							<h5>{{product.unitPrice}} Lei</h5>
+							<p class="card-text">{{product.description}}</p>
+						</div>
+						<div class="card-footer">
+							<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
+								&#9734;</small>
+						</div>
+					</div>
+				</div>
+                
+                
+                
+                
+                
+				<%-- <div class="col-lg-4 col-md-6 mb-4">
 					<div class="card h-100">
 						<a href="#"><img class="card-img-top"
 							src="${pageContext.request.contextPath}/assets/image/PRDABCXYZDEFX.jpg" alt=""></a>
@@ -153,7 +219,7 @@
 								&#9734;</small>
 						</div>
 					</div>
-				</div>
+				</div> --%>
 
 			</div>
 			<!-- /.row -->

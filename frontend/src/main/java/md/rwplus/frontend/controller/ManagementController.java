@@ -50,6 +50,7 @@ public class ManagementController {
 		
 		Product nProduct = new Product();
 		
+		
 		// assuming that the user is ADMIN
 		// later we will fixed it based on user is SUPPLIER or ADMIN
 		nProduct.setSupplierId(1);
@@ -171,7 +172,7 @@ public class ManagementController {
 		public String handleCategoryDelete(@ModelAttribute Category category) {					
 			//delete category
 			categoryDAO.delete(category);		
-			return "redirect:/manage/category?operation=category";
+			return "redirect:/manage/products?operation=category";
 		}
 	
 	///////////////////////////category
@@ -212,10 +213,16 @@ public class ManagementController {
 			
 
 	//returning categories for all the request mapping
-	@ModelAttribute("categories") 
+/*	@ModelAttribute("categories") 
 	public List<Category> getCategories() {
 		return categoryDAO.list();
+	}*/
+	
+	@ModelAttribute("categories") 
+	public List<Category> getCategories() {
+		return categoryDAO.listActiveCategory();
 	}
+	
 	
 	 @ModelAttribute("category")
 	public Category getCategory() {

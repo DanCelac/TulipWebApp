@@ -4,16 +4,25 @@
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 	
-
+    
+  <!--   trebuie sa ne asiguram ca clasa Address implementeaza Serialiazble -->
 	<var name="shipping" class="md.rwplus.backend.model.Address"/>
 	
+	 <!--  on start cind incepem de la inceput  -->
 	<on-start>
+	  <!--   metoda init returneaza o valoare  cu ajutorul result=flowScope.ceReturneza salvam acesta valoare       
+	         folosim evaluate pentru a invoca o metoda-->
+	         
 		<evaluate expression="checkoutHandler.init(currentUser.name)" result="flowScope.checkoutModel"/>
+		
+		                                       <!--  Use currentUser to access the authenticated Principal: -->
 	</on-start>
 
+    
 	<!-- view the address selection page-->
 	<view-state id="shipping" view="flows/cart/checkout/order-address" model="shipping">
 		<on-entry>
+		    <!--  invocam metoda -->
 			<evaluate expression="checkoutHandler.getShippingAddresses(flowScope.checkoutModel)" result="viewScope.addresses"/>	
 		</on-entry>
 		<transition on="addressSelection" to="saveAddressSelection" validate="false"/>
@@ -51,6 +60,8 @@
 		</on-entry>
 	</end-state>
 
+
+             <!-- contextRelative:redirect to a resource relative to the current web application context path -->
 	<end-state id="home" view="externalRedirect:contextRelative:/home" />
 	<end-state id="error" view="flows/shared/flows-error" />
 	

@@ -11,17 +11,24 @@
 				<h4>Select Shipping Address</h4>
 				<hr/>
 				
-				<div class="row">
+				<div class="container">
 					<c:forEach items="${addresses}" var="address">					
 						<div class="col-xs-12">
+							 	
 							<h3>${address.addressLineOne}</h3>
 							<h4>${address.city} </h4>
 							<hr/>
+						
 							<div class="text-center">
-								<a href="${flowExecutionUrl}&_eventId_addressSelection&shippingId=${address.id}" class="btn btn-primary">Select</a>
+							<!-- Use flowExecutionUrl to access the context-relative URI for the current flow execution view-state. -->
+						
+				               <a href="${flowExecutionUrl}&_eventId_addressSelection&shippingId=${address.userId}" class="btn btn-primary">Select</a>
+							
 							</div>
+						
 						</div>
-					</c:forEach>			
+                  
+					</c:forEach>		
 				</div>
 	
 	

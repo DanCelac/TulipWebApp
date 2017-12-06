@@ -87,20 +87,20 @@
 
 		<!-- Page Content -->
 
-		<div class="content">
+		
 			<div class="container">
 				<div class="alert alert-success">
 					<h3 class="text-center">Your Order is Confirmed !</h3>
 				</div>
 				<div class="row">
-					<div class="col-xs-12">
+					<div class="col-md-12">
 						<div class="invoice-title">
 							<h2>Invoice</h2>
 							<h3 class="pull-right">Order # ${orderDetail.id}</h3>
 						</div>
 						<hr>
 						<div class="row">
-							<div class="col-xs-6">
+							<div class="col-md-6">
 								<address>
 									<strong>Billed To:</strong><br>
 									${orderDetail.user.firstName} ${orderDetail.user.lastName}<br>
@@ -109,7 +109,7 @@
 									
 								</address>
 							</div>
-							<div class="col-xs-6 text-right">
+							<div class="col-md-6 text-right">
 								<address>
 									<strong>Shipped To:</strong><br>
 									${orderDetail.user.firstName} ${orderDetail.user.lastName}<br>
@@ -119,13 +119,13 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-xs-6">
+							<div class="col-md-6">
 								<address>
 									<strong>Payment Method:</strong><br> Card Payment <br>
 									${orderDetail.user.email}
 								</address>
 							</div>
-							<div class="col-xs-6 text-right">
+							<div class="col-md-6 text-right">
 								<address>
 									<strong>Order Date:</strong><br> ${orderDetail.orderDate}<br>
 									<br>
@@ -176,7 +176,8 @@
 					<a href="${contextRoot}/show/all/products"
 						class="btn btn-lg btn-warning">Continue Shopping</a>
 				</div>
+				<div class="row"> <div class="col-md-12"><hr/> </div></div>
 			</div>
 		</div>
-	</div>		
+		
 <%-- 	<%@include file="../../shared/flows-footer.jsp"%> --%>

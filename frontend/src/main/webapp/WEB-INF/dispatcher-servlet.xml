@@ -52,6 +52,8 @@
 	<mvc:annotation-driven />  <!-- pentru a nu specifica in acest xml file configurari la bean, dar sa putem nota doar ex. @Controller fara a configura in xml -->
 	<mvc:resources location="/assets/" mapping="/resources/**" />
 	
+	
+	
 	<!-- WebFlow Configuration -->
 	<!-- Entry point for the flow -->
 	<wf:flow-executor id="flowExecutor" flow-registry="flowRegistry"/>
@@ -67,15 +69,23 @@
 	   validator="validator"
 	   />  <!--  validator="validator"  pentru validarea paginilor web flow, mai jos creez acest been cu numele validator -->
 	
+	
+	 
+
+<!-- Primul pas pentru trimiterea cererilor de fluxuri este de a permite manipularea fluxului în cadrul MVC -->
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
 	    <property name="flowExecutor" ref="flowExecutor"/>
 	</bean>
 	
+	
+	<!-- Once flow handling is enabled, the next step is to map specific application resources to your flows -->
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
 	    <property name="flowRegistry" ref="flowRegistry"/>
 	    <property name="order" value="-1"/>   <!--Ca preferintele sa fie webFlow sa nu incurce cu Controlerul, chiar daca avem RequestMaping prioriate va pune WebFlow   -->
 	</bean>
 	
+	
+<!-- 	viewFactoryCreator is the factory that allows you to configure how the Spring MVC view system is used inside Spring Web Flow. -->
 	<bean id="viewFactoryCreator" 
 	          class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
 	          <property name="viewResolvers" ref="viewResolver" />
