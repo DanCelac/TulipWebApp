@@ -40,6 +40,13 @@ public class JsonDataController {
 				
 	}
 	
+	/*@RequestMapping("/admin/all/command")
+	@ResponseBody
+	public List<Object> getAllCommandForAdmin () {		
+		return productDAO.listCommand();
+				
+	}
+	*/
 	
 	@RequestMapping("/all/products")
 	@ResponseBody //va fi returnat in format Json

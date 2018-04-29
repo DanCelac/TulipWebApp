@@ -55,7 +55,7 @@
 							
 							<div class="form-group">
 								<label class="control-label col-md-4" for="addressLineOne">Address</label>
-								<div class="col-md-8">
+								<div class="col-md-8 mx-auto">
 									<sf:input type="text" path="addressLineOne" class="form-control"
 										placeholder="Enter Address " />
 									<sf:errors path="addressLineOne" cssClass="help-block" element="em"/> 
@@ -63,17 +63,17 @@
 							</div>
 
 
-							<div class="form-group">
+							<%-- <div class="form-group">
 								<label class="control-label col-md-4" for="city">City</label>
 								<div class="col-md-8">
 									<sf:input type="text" path="city" class="form-control"
 										placeholder="Enter City Name" />
 									<sf:errors path="city" cssClass="help-block" element="em"/> 
 								</div>
-							</div>
+							</div> --%>
 							
 							<div class="form-group">
-								<div class="col-md-offset-4 col-md-8">
+								<div class="mx-auto col-md-8">
 									<button type="submit" name="_eventId_saveAddress" class="btn btn-primary">
 										<span class="glyphicon glyphicon-plus"></span> Add Address
 									</button>																	 

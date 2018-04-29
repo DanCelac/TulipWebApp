@@ -35,7 +35,7 @@
 	                        Payment Details
 	                    </h3>
 	                </div>
-	                <div class="card-body">
+	                <!-- <div class="card-body">
 	                    <form role="form">
 	                    
 	                    <div class="form-group">
@@ -68,14 +68,14 @@
 	                    </div>
 	                    </form>
 	                </div>
-	            </div>
+	            </div> -->
 	            <ul class="nav nav-pills nav-stacked">
 	                <li class="active ">
 	                     <a href="#"  class="btn btn-primary btn-lg btn-block">Final Payment <span class="pull-right "> ${checkoutModel.checkoutTotal} - Lei</span> </a>
 	                 </li>
 	            </ul>
 	            <br/>
-	            <a href="${flowExecutionUrl}&_eventId_pay" class="btn btn-success btn-lg btn-block" role="button">Pay</a>
+	            <a href="${flowExecutionUrl}&_eventId_pay" class="btn btn-success btn-lg btn-block" role="button">Pay Cash</a>
 			
 			</div>
 

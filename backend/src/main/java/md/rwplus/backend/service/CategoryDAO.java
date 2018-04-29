@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import md.rwplus.backend.model.Category;
+import md.rwplus.backend.model.Product;
 
 
 public interface CategoryDAO {

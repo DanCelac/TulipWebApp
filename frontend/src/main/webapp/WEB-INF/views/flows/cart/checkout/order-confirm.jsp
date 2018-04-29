@@ -121,7 +121,7 @@
 						<div class="row">
 							<div class="col-md-6">
 								<address>
-									<strong>Payment Method:</strong><br> Card Payment <br>
+									<strong>Payment Method:</strong><br> Payment Cash <br>
 									${orderDetail.user.email}
 								</address>
 							</div>

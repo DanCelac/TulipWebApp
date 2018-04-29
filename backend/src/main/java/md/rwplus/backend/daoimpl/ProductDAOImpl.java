@@ -99,6 +99,18 @@ public class ProductDAOImpl implements ProductDAO {
 		}		
 		return false;			
 	}
+	
+	public List<Object> listCommand(){
+		String selectCommand = "select first_name, last_name,contact_number, address_line_one,product.name,product.unit_price, order_item.product_count, order_item.total,order_detail.order_date FROM user_detail"+
+				"INNER JOIN order_item ON order_item.order_id= order_detail.id"+
+				"INNER JOIN product ON product.id= order_item.product_id"+
+				"INNER JOIN order_detail ON order_detail.user_id = user_detail.id"+
+				"INNER JOIN address ON address.user_id = user_detail.id";
+		return sessionFactory
+				.getCurrentSession()
+					.createQuery(selectCommand)
+						.getResultList();	
+	}
 
 	@Override
 	public List<Product> listActiveProducts() {

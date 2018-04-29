@@ -80,14 +80,14 @@
 						</div>
                       <!-- radio button using bootstrap class of radio-inline -->
 						<div class="form-group">
-							<label class="control-label col-md-4">Select Role</label>
+							<label class="control-label col-md-4">Role</label>
 							<div class="col-md-8 mx-auto">
 								<label class="radio-inline">  
 								      <sf:radiobutton path="role" value="USER" checked="checked" /> User
 								</label> 
-								<label class="radio-inline">
+								<%-- <label class="radio-inline">
 								      <sf:radiobutton path="role" value="SUPPLIER" /> Supplier
-								</label>
+								</label> --%>
 							</div>
 						</div>
 

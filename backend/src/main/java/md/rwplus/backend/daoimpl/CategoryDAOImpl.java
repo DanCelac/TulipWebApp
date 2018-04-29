@@ -91,11 +91,11 @@ public class CategoryDAOImpl implements CategoryDAO {
 	 * */
 	@Override
 	public List<Category> listActiveCategory() {
-		String selectActiveCategory = "FROM Category WHERE active = :active";
+		String selectActiveCategory = "FROM Category WHERE is_active = :true";
 		return sessionFactory
 				.getCurrentSession()
 					.createQuery(selectActiveCategory, Category.class)
-						.setParameter("active", true)
+						.setParameter("true", true)
 							.getResultList();
 	}
 	
@@ -146,6 +146,8 @@ public class CategoryDAOImpl implements CategoryDAO {
 			// update the category to the database table
 			sessionFactory.getCurrentSession().update(category);
 			return true;
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -170,7 +172,9 @@ public class CategoryDAOImpl implements CategoryDAO {
 			return false;
 			
 		}
+		
 	}
-
+	
 }
+
 //resolved

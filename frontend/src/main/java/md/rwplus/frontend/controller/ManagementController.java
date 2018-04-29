@@ -228,6 +228,11 @@ public class ManagementController {
 	public Category getCategory() {
 		return new Category();
 	}
+	 
+/*    @ModelAttribute("command") 
+   public List<Object> getListCommand() {
+	      return productDAO.listCommand();
+	    }*/
 	
 	
 }
